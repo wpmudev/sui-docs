@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "name": "sui-docs",
+  "license": "GPL-3.0",
+  "keywords": [
+    "incsub",
+    "wpmudev",
+    "shared-ui",
+    "documentation"
+  ],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-docs.git"
+  },
+  "workspaces": [
+    "stories/*",
+    "sui-css/packages/*",
+    "sui-react/packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
