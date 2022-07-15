@@ -42,7 +42,8 @@
     "react-dom": "^18.2.0"
   },
   "resolutions": {
-    "glob-parent": "^6.0.2"
+	  "glob-parent": "^6.0.2",
+	  "trim": "^0.0.3"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
