@@ -3,3 +3,8 @@ node_modules
 
 # Ignore error logs.
 *.log
+
+# Ignore external workspaces.
+sui-css
+sui-react
+sui-icons
