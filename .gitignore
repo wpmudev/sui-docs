@@ -11,3 +11,6 @@ node_modules
 sui-css
 sui-react
 sui-icons
+
+# Ignore Storybook production build.
+storybook-static
