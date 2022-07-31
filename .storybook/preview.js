@@ -108,13 +108,6 @@ const WordPress = ({ children }) => {
 								</a>
 							</li>
 						</ul>
-
-						<ul id="wp-admin-bar-top-secondary" className="ab-top-secondary ab-top-menu">
-							<li id="wp-admin-bar-version" className="menupop">
-								<span className="ab-icon"></span>
-								<span className="ab-label">Grid Prototype</span>
-							</li>
-						</ul>
 					</div>
 				</div>
 
