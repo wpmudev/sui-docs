@@ -39,6 +39,7 @@
     "@storybook/testing-library": "^0.0.13",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "dedent": "^0.7.0",
     "gh-pages": "^4.0.0",
     "lerna": "^4.0.0",
     "path": "^0.12.7",
@@ -57,6 +58,6 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-	"deploy": "yarn run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\""
+    "deploy": "yarn run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\""
   }
 }
