@@ -21,7 +21,7 @@
     "url": "git+https://github.com/wpmudev/sui-docs.git"
   },
   "workspaces": [
-    "sui-stories/*",
+    "packages/*",
     "sui-css/packages/*",
     "sui-react/packages/*"
   ],
