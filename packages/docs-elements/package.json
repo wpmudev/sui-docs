@@ -1,0 +1,41 @@
+{
+  "private": true,
+  "name": "@wpmudev/docs-elements",
+  "version": "1.0.0",
+  "description": "Documentation global elements.",
+  "keywords": [
+    "incsub",
+    "wpmudev",
+    "shared-ui",
+    "documentation"
+  ],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    }
+  ],
+  "license": "GPL-3.0",
+  "main": "lib/docs-elements.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-docs.git",
+	"directory": "packages/docs-elements"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/wpmudev/sui-docs/issues"
+  },
+  "homepage": "https://github.com/wpmudev/sui-docs#readme"
+}
