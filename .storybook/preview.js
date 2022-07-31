@@ -1,3 +1,10 @@
+import React from 'react';
+
+import './assets/js/body-class';
+import './assets/js/html-class';
+
+import './assets/css/wordpress.css';
+
 /**
  * Get devices samples from:
  * https://screensiz.es/
@@ -61,4 +68,74 @@ export const parameters = {
 	backgrounds: {
 		disable: true
 	},
+	options: {
+		storySort: {
+			order: []
+		}
+	}
 }
+
+const WordPress = ({ children }) => {
+	return (
+		<div id="wpadmin">
+			<div id="adminmenumain" role="navigation" aria-label="Main Menu">
+				<div id="adminmenuback"></div>
+
+				<div id="adminmenuwrap">
+					<ul id="adminmenu">
+						<li className="wp-not-current-submenu wp-menu-separator" aria-hidden="true">
+							<div className="separator"></div>
+						</li>
+
+						<li id="collapse-menu" className="hide-if-no-js">
+							<button type="button" id="collapse-button" aria-label="Collapse Main menu" aria-expanded="true">
+								<span className="collapse-button-icon" aria-hidden="true"></span>
+								<span className="collapse-button-label">Collapse menu</span>
+							</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="wpcontent">
+				<div id="wpadminbar" className="nojq">
+					<div role="navigation" id="wp-toolbar" className="quicklinks" aria-label="Toolbar">
+						<ul id="wp-admin-bar-root-default" className="ab-top-menu">
+							<li id="wp-admin-bar-menu-toggle">
+								<a className="ab-item" href="#" aria-expanded="false">
+									<span className="ab-icon"></span>
+									<span className="screen-reader-text">Menu</span>
+								</a>
+							</li>
+						</ul>
+
+						<ul id="wp-admin-bar-top-secondary" className="ab-top-secondary ab-top-menu">
+							<li id="wp-admin-bar-version" className="menupop">
+								<span className="ab-icon"></span>
+								<span className="ab-label">Grid Prototype</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="wpbody" role="main">
+					<div id="wpbody-content">
+						{ children }
+					</div>
+
+					<div className="clear"></div>
+				</div>
+
+				<div className="clear"></div>
+			</div>
+		</div>
+	);
+};
+
+export const decorators = [
+	( Story ) => (
+		<WordPress>
+			<Story />
+		</WordPress>
+	)
+];
