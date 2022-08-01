@@ -70,7 +70,19 @@ export const parameters = {
 	},
 	options: {
 		storySort: {
-			order: []
+			order: [
+				'SUI',
+				[
+					'Home',
+					'Getting Started',
+					"What's New",
+					['Changelog', 'Monthly Updates', 'Roadmap'],
+					// 'Utilities',
+					// ['Intro', 'Colors', 'Typography'],
+					// 'Components',
+					'*'
+				]
+			]
 		}
 	}
 }
