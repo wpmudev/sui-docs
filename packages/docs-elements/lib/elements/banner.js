@@ -2,9 +2,9 @@ import React from "react";
 
 import { linkTo } from '@storybook/addon-links';
 
-import '../assets/css/banner-home.css';
+import '../assets/css/banner.css';
 
-export const BannerHome = ({ heading, subheading, ctaLabel, ctaLink }) => {
+export const Banner = ({ heading, subheading, ctaLabel, ctaLink }) => {
 	return (
 		<div className="csb-banner csb-banner--gradient">
 			<div className="csb-banner__container csb-content">

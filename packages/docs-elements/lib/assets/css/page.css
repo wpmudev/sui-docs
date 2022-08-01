@@ -1,0 +1,47 @@
+.csb-page,
+.csb-page * {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.csb-page--white {
+	background: white;
+}
+
+.csb-heading {
+	border-bottom: 1px solid #e5e5e5;
+	background: #fff;
+}
+
+.csb-page__title {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	color: #333;
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 40px;
+}
+
+.csb-page__subtitle {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	color: #888;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 30px;
+}
+
+@media (min-width: 990px) {
+	.csb-page__title {
+		font-size: 36px;
+		line-height: 44px;
+	}
+
+	.csb-page__subtitle {
+		font-size: 20px;
+		line-height: 32px;
+	}
+}
