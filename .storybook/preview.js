@@ -76,7 +76,12 @@ export const parameters = {
 					'Home',
 					'Getting Started',
 					"What's New",
-					['Changelog', 'Monthly Updates', 'Roadmap'],
+					['Changelog', 'Roadmap'],
+					'CSS Framework',
+					[
+						'Layout',
+						['Overview', 'Container', 'Grid']
+					],
 					// 'Utilities',
 					// ['Intro', 'Colors', 'Typography'],
 					// 'Components',
