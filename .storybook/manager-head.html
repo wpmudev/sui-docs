@@ -175,6 +175,12 @@
 	a[href='#storybook-preview-wrapper'] {
 		display: none;
 	}
+
+	/** Controls UI */
+	#panel-tab-content input:checked ~ span:last-of-type,
+	#panel-tab-content input:not(:checked) ~ span:first-of-type {
+		color: var(--csb-mono-color--white);
+	}
 </style>
 
 <script>
