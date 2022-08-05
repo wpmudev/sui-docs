@@ -1,6 +1,7 @@
 import { addons } from '@storybook/addons';
 import { create } from '@storybook/theming/create';
 
+import './assets/js/page-title';
 import suiLogo from './assets/images/sui-logo.png';
 
 const suiTheme = create({
