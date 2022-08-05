@@ -1,0 +1,91 @@
+.csb-table {
+	display: block;
+}
+
+.csb-table__row {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.csb-table__cell {
+	display: block;
+	flex: 1 1 auto;
+	padding: 10px;
+	background: #E6E6E6;
+}
+
+.csb-table__col {
+	display: block;
+	flex: 0 0 auto;
+}
+
+.csb-table__col--1 {
+	width: 8.33%;
+}
+
+.csb-table__col--2 {
+	width: 16.67%;
+}
+
+.csb-table__col--3 {
+	width: 25%;
+}
+
+.csb-table__col--4 {
+	width: 33.33%;
+}
+
+.csb-table__col--5 {
+	width: 41.67%;
+}
+
+.csb-table__col--6 {
+	width: 50%;
+}
+
+.csb-table__col--7 {
+	width: 58.33%;
+}
+
+.csb-table__col--8 {
+	width: 66.67%;
+}
+
+.csb-table__col--9 {
+	width: 75%;
+}
+
+.csb-table__col--10 {
+	width: 83.33%;
+}
+
+.csb-table__col--11 {
+	width: 91.67%;
+}
+
+.csb-table__col--12 {
+	width: 100%;
+}
+
+.csb-table__cell code {
+	padding: 0;
+	background: transparent;
+	font-size: 12px;
+}
+
+.csb-table__cell[role="columnheader"] {
+	background: #286EF1;
+	color: #FFF;
+	font-size: 14px;
+	font-weight: 600;
+	text-align: center;
+}
+
+.csb-table__cell[role="columnheader"] small {
+	font-size: 12px;
+	font-weight: 400;
+}
+
+.csb-table__cell-title {
+	font-weight: 600;
+}
