@@ -24,6 +24,11 @@
 	line-height: 40px;
 }
 
+.csb-page__title .csb-tag,
+.csb-page__title .csb-tooltip__message {
+	margin-left: 10px;
+}
+
 .csb-page__subtitle {
 	margin: 0;
 	padding: 0;

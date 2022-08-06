@@ -1,0 +1,51 @@
+.csb-tag {
+	vertical-align: middle;
+	padding: 3px 10px;
+	border-radius: 20px;
+	background: #E6E6E6;
+	font-size: 11px;
+	line-height: 14px;
+	text-transform: uppercase;
+}
+
+.csb-tag--yellow {
+	background: #FFF4CE;
+	color: #5B502B;
+}
+
+.csb-tag--blue {
+	background: hsl(213, 83%, 91%);
+	color: #1c4d8e;
+}
+
+.csb-tag--red {
+	background: #FCCECD;
+	color: #AB403E;
+}
+
+.csb-tooltip {
+	display: inline-block;
+	position: relative;
+}
+
+.csb-tooltip__message {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	padding: 10px;
+	border-radius: 3px;
+	background: #1A1A1A;
+	color: #FFF;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 14px;
+	text-overflow: clip;
+	white-space: nowrap;
+}
+
+.csb-tooltip--active .csb-tooltip__message {
+	opacity: 1;
+	visibility: visible;
+}
