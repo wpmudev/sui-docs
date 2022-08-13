@@ -142,10 +142,20 @@ const WordPress = ({ children }) => {
 	);
 };
 
+const SuiWrapper = ({ children }) => {
+	return (
+		<WordPress>
+			<div className="sui-wrap sui-theme--light">
+				{children}
+			</div>
+		</WordPress>
+	);
+}
+
 export const decorators = [
 	( Story ) => (
-		<WordPress>
+		<SuiWrapper>
 			<Story />
-		</WordPress>
+		</SuiWrapper>
 	)
 ];
