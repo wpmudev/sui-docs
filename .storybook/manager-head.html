@@ -182,6 +182,11 @@
 		color: var(--csb-mono-color--white);
 	}
 
+	#panel-tab-content input:checked ~ span:last-of-type,
+	#panel-tab-content input:not(:checked) ~ span:first-of-type {
+		color: var(--textColor);
+	}
+
 	#panel-tab-content .docblock-argstable-body tr td {
 		background: var(--csb-mono-color--white) !important;
 	}
