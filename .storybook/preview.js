@@ -79,8 +79,10 @@ export const parameters = {
 					['Changelog', 'Roadmap'],
 					'CSS Framework',
 					[
+						'Typography',
+						['Overview', 'Heading', 'Subtitle', 'Caption', 'Overline', 'Paragraph', '*'],
 						'Layout',
-						['Overview', 'Container', 'Grid']
+						['Overview', 'Container', 'Grid', '*']
 					],
 					// 'Utilities',
 					// ['Intro', 'Colors', 'Typography'],
