@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import '../assets/css/page.css';
 import '../assets/css/tooltip.css';
 
-export const Page = ({ title, status, light = false, children }) => {
+export const Page = ({ title, status, light = false, flushed = false, children }) => {
 	const [ isHovering, setIsHovering ] = useState( false );
 
 	const handleMouseOver = () => {
@@ -67,7 +67,7 @@ export const Page = ({ title, status, light = false, children }) => {
 	return (
 		<div className={ `csb-page${ light ? ' csb-page--white' : '' }` }>
 			{ '' !== title &&
-				<div className="csb-heading">
+				<div className={`csb-heading${ flushed ? ' csb-heading--flushed' : '' }`}>
 					<div className="csb-content">
 						<h1 className="csb-page__title">{ title }{ statusName ? statusTag : '' }</h1>
 					</div>

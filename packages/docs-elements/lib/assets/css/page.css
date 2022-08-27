@@ -9,6 +9,7 @@
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
+	background: #f0f0f1;
 }
 
 .csb-page .csb-heading,
@@ -16,7 +17,8 @@
 	flex: 0 0 auto;
 }
 
-.csb-page .csb-content {
+.csb-page .csb-content,
+.csb-page .csb-tabs {
 	flex: 1;
 }
 
@@ -27,6 +29,14 @@
 .csb-heading {
 	border-bottom: 1px solid #e5e5e5;
 	background: #fff;
+}
+
+.csb-heading--flushed {
+	border-bottom: 0;
+}
+
+.csb-heading--flushed .csb-content {
+	padding-bottom: 20px;
 }
 
 .csb-page__title {

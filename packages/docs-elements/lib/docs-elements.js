@@ -4,6 +4,7 @@ import { Content } from './elements/content';
 import { Section } from './elements/section';
 import { Box } from './elements/box';
 import { Table, TableHead, TableBody } from './elements/table';
+import { TabbedContent } from "./elements/content-tabbed";
 import { Footer } from './elements/footer';
 
 export const Docs = {};
@@ -16,4 +17,5 @@ Docs.Box = Box;
 Docs.Table = Table;
 Docs.TableHead = TableHead;
 Docs.TableBody = TableBody;
+Docs.TabbedContent = TabbedContent;
 Docs.Footer = Footer;
