@@ -1,4 +1,4 @@
-import React, { useState, setState } from "react";
+import React, { useState } from "react";
 import { Content } from "./content";
 
 import "../assets/css/tabs.css";

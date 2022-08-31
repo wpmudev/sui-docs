@@ -1,0 +1,23 @@
+.csb-switcher {
+	margin: 40px 0;
+}
+
+.csb-switcher:first-child {
+	margin-top: 0;
+}
+
+.csb-switcher:last-child {
+	margin-bottom: 0;
+}
+
+.csb-switcher__bar {
+	margin-bottom: 40px;
+}
+
+.csb-switcher__select.is-hidden {
+	display: none;
+}
+
+.csb-switcher__content.is-hidden {
+	display: none;
+}
