@@ -11,10 +11,15 @@ export const Switcher = ({ data = [], ...args }) => {
 	const [subSelection, setSubSelection] = useState();
 
 	useEffect( () => {
-		if ( hasSubData && 'undefined' === typeof subSelection ) {
-			setSubSelection( subData[0].data[0].value );
+		if ( 'undefined' !== typeof data[0].data[0].data && 0 < data[0].data[0].data.length ) {
+			setSubData( [data[0].data[0]] );
+			setHasSubData( true );
 		}
-	} );
+	}, [] );
+
+	if ( hasSubData && 'undefined' === typeof subSelection ) {
+		setSubSelection( subData[0].data[0].value );
+	}
 
 	const buttons = data.map( ( button, index ) => {
 		const btnId = button.id;
@@ -35,6 +40,7 @@ export const Switcher = ({ data = [], ...args }) => {
 					if ( 'undefined' !== typeof selectedOption.data && selectedOption.data.length > 0 ) {
 						setSubData( [btnOptions[selectedIndex]] );
 						setHasSubData( true );
+						setSubSelection( btnOptions[selectedIndex].data[0].value );
 					} else {
 						setSubData([]);
 						setHasSubData( false );
@@ -83,11 +89,11 @@ export const Switcher = ({ data = [], ...args }) => {
 		} );
 	}
 
-	const boxes = data.map( ( box ) => {
+	const boxes = data.map( ( box, index ) => {
 		const boxOptions = box.data;
 
 		return (
-			<>
+			<React.Fragment key={ index }>
 				{ boxOptions.map( ( option, index ) => {
 					const optValue = option.value;
 					const optContent = option.content;
@@ -119,7 +125,7 @@ export const Switcher = ({ data = [], ...args }) => {
 						</div>
 					);
 				} ) }
-			</>
+			</React.Fragment>
 		);
 	} );
 

@@ -78,5 +78,3 @@ export const Page = ({ title, status, light = false, flushed = false, children }
 		</div>
 	);
 }
-
-// <span id="tip1" class="tooltip" role="tooltip" >Also known as User ID</span>
