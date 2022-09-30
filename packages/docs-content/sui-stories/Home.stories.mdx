@@ -1,6 +1,12 @@
 import { Meta } from '@storybook/addon-docs';
 import { Docs } from '@wpmudev/docs-elements';
 
+import imgCssFramework from './images/css-framework.svg';
+
+export const svgCssFramework = (
+	<svg width="782" height="412" viewBox="0 0 782 412" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="782" height="412" fill="#FC685E"></rect><rect width="782" height="412" fill="#F6F8F8"></rect><path fillRule="evenodd" clipRule="evenodd" d="M391 205.252L520.374 280.571L520.319 280.626H261.681L261.626 280.571L391 205.252ZM391 356L261.627 280.68L261.681 280.626H520.32L520.374 280.68L391 356Z" fill="#3559C7"></path><path fillRule="evenodd" clipRule="evenodd" d="M391 130.626L520.374 205.946L520.319 206.001L520.374 206.057L391 281.376L261.627 206.057L261.682 206.001L261.626 205.946L391 130.626Z" fill="#5A78D3"></path><path fillRule="evenodd" clipRule="evenodd" d="M391 56.0001L520.374 131.32L520.32 131.374H261.681L261.626 131.32L391 56.0001ZM391.376 206.694L262.002 131.374H520.749L391.376 206.694Z" fill="#AEBCE9"></path></svg>
+);
+
 <Meta title="SUI/Home" />
 
 <Docs.Banner
@@ -12,8 +18,36 @@ import { Docs } from '@wpmudev/docs-elements';
 	ctaLink="sui-getting-started--page"
 />
 
-<Docs.Content>
-	<p>Content...</p>
+<Docs.Content fullscreen={true}>
+	<Docs.Grid>
+		<div size="2">
+			<Docs.Card
+				type="button"
+				link="sui-css-framework-colors"
+				title="CSS Framework"
+				legend="Styles-centric framework that gives you the base styles and structure for any component."
+				svg={svgCssFramework}
+			/>
+		</div>
+		<div size="2">
+			<Docs.Card
+				type="button"
+				link="sui-components"
+				title="Components"
+				legend="Presentational UI components with encapsulated styles for React framework."
+				svg={svgCssFramework}
+			/>
+		</div>
+		<div size="2">
+			<Docs.Card
+				type="button"
+				link="sui-suicons"
+				title="Suicons"
+				legend="Communicate messages at a glance and draw attention to important information."
+				svg={svgCssFramework}
+			/>
+		</div>
+	</Docs.Grid>
 </Docs.Content>
 
 <Docs.Footer />

@@ -6,6 +6,8 @@ import { Box } from './elements/box';
 import { Table, TableHead, TableBody } from './elements/table';
 import { Table as Table2 } from './elements/table2';
 import { TabbedContent } from "./elements/content-tabbed";
+import { Card } from "./elements/card";
+import { Row } from "./elements/grid";
 import { Switcher } from "./elements/switcher";
 import { Footer } from './elements/footer';
 
@@ -21,5 +23,7 @@ Docs.TableHead = TableHead;
 Docs.TableBody = TableBody;
 Docs.Table2 = Table2;
 Docs.TabbedContent = TabbedContent;
+Docs.Card = Card;
+Docs.Grid = Row;
 Docs.Switcher = Switcher;
 Docs.Footer = Footer;
