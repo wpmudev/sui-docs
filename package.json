@@ -60,6 +60,7 @@
     "trim-newlines": "^4.0.2"
   },
   "scripts": {
+    "format-files": "clear && yarn prettier --write .",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy": "yarn run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\""
