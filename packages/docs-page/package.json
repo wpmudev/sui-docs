@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/docs-page",
   "description": "Use this component inside Storybook (React) stories to create a beautiful and friendly interface for the showcase.",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "license": "GPL-3.0",
   "keywords": [
     "wpmudev",
