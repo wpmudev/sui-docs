@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@wpmudev/docs-elements",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Documentation global elements.",
   "keywords": [
     "incsub",
