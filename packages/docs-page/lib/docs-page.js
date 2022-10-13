@@ -1,12 +1,37 @@
 import React from "react";
 
-// Import documentation components.
+// Import required components.
+import { Banner } from "@wpmudev/docs-banner";
 import { Header } from "@wpmudev/docs-header";
 import { Tabs } from "@wpmudev/docs-tabs";
 import { Footer } from "@wpmudev/docs-footer";
 
+// Import required styles.
+import "./docs-page.scss";
+
 // Build "page" component.
 const Page = {};
+
+Page.Home = ({ title, subtitle, action, image, children, ...args }) => {
+	return (
+		<div className="csb-page" { ...args }>
+			<Banner
+				title={ title }
+				subtitle={ subtitle }
+				action={ action }
+				image={ image }
+			/>
+
+			<div className="csb-page__body">
+				<div className="csb-content csb-content--lg">
+					{ children }
+				</div>
+			</div>
+
+			<SetFooter />
+		</div>
+	);
+}
 
 Page.Simple = ({ title, subtitle, status, children, ...args }) => {
 	const hasSubtitle = !isUndefined(subtitle) ? true : false;
@@ -15,7 +40,7 @@ Page.Simple = ({ title, subtitle, status, children, ...args }) => {
 		<div className="csb-page" { ...args }>
 			<Header title={ title } border={ true } status={ status } />
 
-			<div className="csb-page__content">
+			<div className="csb-page__body">
 				{ hasSubtitle && (
 					<div className="csb-page__container">
 						<h2 className="csb-subtitle">{ subtitle }</h2>
@@ -48,7 +73,7 @@ Page.Tabs = ({ title, status, ...args }) => {
 const SetFooter = () => {
 	return (
 		<Footer>
-			<div label="Terms" />
+			<div label="Terms" kind="sui-terms--page" />
 			<div label="Privacy" />
 		</Footer>
 	);
