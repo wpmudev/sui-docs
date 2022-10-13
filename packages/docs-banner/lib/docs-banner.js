@@ -1,5 +1,9 @@
 import React from "react";
+import { Button } from '@wpmudev/docs-button';
 import { linkTo } from '@storybook/addon-links';
+
+// Import required styles.
+import "./docs-banner.scss";
 
 // Build "header" component.
 const Banner = ({ title, subtitle, action, image }) => {
@@ -28,15 +32,18 @@ const Banner = ({ title, subtitle, action, image }) => {
 				{ !isUndefined( title ) && (
 					<h1 className="csb-banner__title">{ title }</h1>
 				)}
+
 				{ !isUndefined( subtitle ) && (
 					<p className="csb-banner__subtitle">{ subtitle }</p>
 				)}
-				{ (!isUndefined( cta.link ) && !isUndefined( cta.label )) && (
-					<button
-						className="csb-button csb-button--primary"
-						onClick={ linkTo( cta.link ) }>
-						{ cta.label }
-					</button>
+
+				{( !isUndefined( cta.link ) && !isUndefined( cta.label ) ) && (
+					<Button
+						label={ cta.label }
+						style="primary"
+						className="csb-banner__cta"
+						onClick={ linkTo( cta.link ) }
+					/>
 				)}
 			</div>
 
