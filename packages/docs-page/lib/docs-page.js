@@ -22,7 +22,7 @@ Page.Home = ({ title, subtitle, action, image, children, ...args }) => {
 				image={ image }
 			/>
 
-			<div className="csb-page__body">
+			<div className="csb-body">
 				<div className="csb-content csb-content--lg">
 					{ children }
 				</div>
@@ -40,7 +40,7 @@ Page.Simple = ({ title, subtitle, status, children, ...args }) => {
 		<div className="csb-page" { ...args }>
 			<Header title={ title } border={ true } status={ status } />
 
-			<div className="csb-page__body">
+			<div className="csb-body">
 				{ hasSubtitle && (
 					<div className="csb-page__container">
 						<h2 className="csb-subtitle">{ subtitle }</h2>

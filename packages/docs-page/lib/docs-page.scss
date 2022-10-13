@@ -58,16 +58,6 @@ $breakpoints: (
 		flex-direction: column;
 	}
 
-	&__body {
-		padding: map.get($gutter, sm);
-
-		@include media(min-width, md) {
-			height: 100%;
-			flex: 1;
-			padding: map.get($gutter, md) map.get($gutter, lg);
-		}
-	}
-
 	* {
 		box-sizing: border-box;
 		font-family: 'Nunito', sans-serif;
@@ -78,6 +68,16 @@ $breakpoints: (
 		font-smoothing: antialiased;
 		-webkit-font-smoothing: antialiased;
 		text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+	}
+}
+
+.csb-body {
+	padding: map.get($gutter, sm);
+
+	@include media(min-width, md) {
+		height: 100%;
+		flex: 1;
+		padding: map.get($gutter, md) map.get($gutter, lg);
 	}
 }
 
