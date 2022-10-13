@@ -39,6 +39,8 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "devDependencies": {
-    "@wpmudev/docs-elements": "^1.0.0"
+    "@wpmudev/docs-card": "^0.0.0",
+    "@wpmudev/docs-grid": "^0.0.0",
+    "@wpmudev/docs-page": "^0.0.0"
   }
 }
