@@ -7,7 +7,7 @@ const Header = ({ title, border, status, ...args }) => {
 	const hasBorder = !isUndefined(border) ? border : true;
 	const hasStatus = !isUndefined(status) ? true : false;
 
-	if ( hasTitle ) {
+	if ( !hasTitle ) {
 		throw new Error(
 			`\nTitle is required for Header component.`
 		);
@@ -56,6 +56,7 @@ const Header = ({ title, border, status, ...args }) => {
 		<div className={ headerClass } { ...args }>
 			<h1 className="csb-title">
 				{ title }
+
 				{( hasStatus && statusName ) && (
 					<Tag
 						id={ `page-status--${ status }` }
