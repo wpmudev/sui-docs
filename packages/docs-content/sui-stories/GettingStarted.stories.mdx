@@ -1,6 +1,7 @@
 import { Meta } from '@storybook/addon-docs';
 import { Page } from "@wpmudev/docs-page";
 import { Section } from "@wpmudev/docs-section";
+import { List } from "@wpmudev/docs-list";
 
 <Meta title="SUI/Getting Started" />
 
@@ -29,34 +30,18 @@ import { Section } from "@wpmudev/docs-section";
 		<p>
 			The following set of essential rules allows us to get to the highest level of productivity while benefiting the company and our team members.
 		</p>
-		<ul>
-			<li>
-				We avoid meetings as much as possible. Instead of having them, we
-				communicate asynchronously to each other via Slack and Figma,
-				expecting responses within 24 hours top.
-			</li>
-			<li>
-				We don't do team-wide standups or sync meetings, except for one
-				session at the start of every cycle. Here we walk through the tasks
-				and discuss how the team feels, what motivates them right now and what
-				they would want to change.
-			</li>
-			<li>
-				Most collaboration and discussion happens in feedback loops, using the
-				above Atlassian tools like JIRA, which requires clear and thoughtful
-				communication from everyone.
-			</li>
-			<li>
-				We don't have strict deadlines. We ship our changes as we move through
-				the backlog and cycles in JIRA and launch new things as they become
-				ready.
-			</li>
-			<li>
-				Our team members should be able to work on what they think is fun or
-				rely on their intuition when picking tasks from the backlog. Our{' '}
-				<strong>design system roadmap</strong> holds us accountable.
-			</li>
-			<li>We focus on persistent iteration over flashy launches.</li>
-		</ul>
+		<List>
+			<div label="We avoid meetings as much as possible. Instead of having them, we communicate asynchronously to each other via Slack and Figma, expecting responses within 24 hours top." />
+			<div label="We don't do team-wide standups or sync meetings, except for one session at the start of every cycle. Here we walk through the tasks and discuss how the team feels, what motivates them right now and what they would want to change." />
+			<div label="Most collaboration and discussion happens in feedback loops, using the above Atlassian tools like JIRA, which requires clear and thoughtful communication from everyone." />
+			<div label="We don't have strict deadlines. We ship our changes as we move through the backlog and cycles in JIRA and launch new things as they become ready." />
+			<div label={[
+				'Our team members should be able to work on what they think is fun or',
+				'rely on their intuition when picking tasks from the backlog. Our ',
+				<strong>design system roadmap</strong>,
+				' holds us accountable.'
+			]} />
+			<div label="We focus on persistent iteration over flashy launches." />
+		</List>
 	</Section>
 </Page.Simple>
