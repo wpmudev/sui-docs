@@ -3,7 +3,9 @@ import React from "react";
 // Import required components.
 import { Banner } from "@wpmudev/docs-banner";
 import { Header } from "@wpmudev/docs-header";
+import { Body } from "@wpmudev/docs-body";
 import { Tabs } from "@wpmudev/docs-tabs";
+import { Section } from "@wpmudev/docs-section";
 import { Footer } from "@wpmudev/docs-footer";
 
 // Import required styles.
@@ -22,11 +24,11 @@ Page.Home = ({ title, subtitle, action, image, children, ...args }) => {
 				image={ image }
 			/>
 
-			<div className="csb-body">
-				<div className="csb-content csb-content--lg">
+			<Body>
+				<Section container={ true }>
 					{ children }
-				</div>
-			</div>
+				</Section>
+			</Body>
 
 			<SetFooter />
 		</div>
@@ -40,15 +42,15 @@ Page.Simple = ({ title, subtitle, status, children, ...args }) => {
 		<div className="csb-page" { ...args }>
 			<Header title={ title } border={ true } status={ status } />
 
-			<div className="csb-body">
+			<Body>
 				{ hasSubtitle && (
-					<div className="csb-page__container">
-						<h2 className="csb-subtitle">{ subtitle }</h2>
-					</div>
+					<Section contained={ true }>
+						<p className="csb-page__title">{ subtitle }</p>
+					</Section>
 				)}
 
 				{ children }
-			</div>
+			</Body>
 
 			<SetFooter />
 		</div>

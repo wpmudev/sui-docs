@@ -69,15 +69,20 @@ $breakpoints: (
 		-webkit-font-smoothing: antialiased;
 		text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 	}
-}
 
-.csb-body {
-	padding: map.get($gutter, sm);
+	p {
+		margin: 0 0 24px;
 
-	@include media(min-width, md) {
-		height: 100%;
-		flex: 1;
-		padding: map.get($gutter, md) map.get($gutter, lg);
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__title {
+		margin: 0;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 32px;
 	}
 }
 

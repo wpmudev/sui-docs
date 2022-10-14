@@ -46,8 +46,10 @@
   },
   "dependencies": {
     "@wpmudev/docs-banner": "^0.0.0",
+    "@wpmudev/docs-body": "^0.0.0",
     "@wpmudev/docs-footer": "^0.0.0",
     "@wpmudev/docs-header": "^0.0.0",
+    "@wpmudev/docs-section": "^0.0.0",
     "@wpmudev/docs-tabs": "^0.0.0"
   }
 }
