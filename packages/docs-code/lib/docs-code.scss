@@ -1,0 +1,19 @@
+.csb-code {
+	display: inline-block;
+	padding: 4px 6px;
+	background: #E9EAEE;
+	color: #1F2852;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 20px;
+	font-family: ui-monospace, Menlo, Monaco, "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Droid Sans Mono", "Courier New", monospace;
+
+	&--sm {
+		padding: 0 5px;
+	}
+
+	&--dark {
+		background: #1F2852;
+		color: #FFFFFF;
+	}
+}
