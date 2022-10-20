@@ -23,7 +23,7 @@
     "lib": "lib"
   },
   "files": [
-	"dist",
+    "dist",
     "lib"
   ],
   "publishConfig": {
@@ -43,5 +43,8 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "devDependencies": {
     "react": "^18.2.0"
+  },
+  "dependencies": {
+    "@wpmudev/docs-section": "^0.0.0"
   }
 }

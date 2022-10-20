@@ -1,5 +1,11 @@
 import React, { Children, useState } from "react";
 
+// Import required components.
+import { Section } from "@wpmudev/docs-section";
+
+// Import required styles.
+import "./docs-tabs.scss";
+
 // Build "tabs" component.
 const Tabs = ({ title, children, ...args }) => {
 	const [selected, setSelected] = useState(0);
@@ -46,21 +52,19 @@ const Tabs = ({ title, children, ...args }) => {
 
 	return (
 		<div role="tablist" className="csb-tabs" { ...args }>
-			<div className="csb-tabs__menu">
-				<div className="csb-content">
+			<Section border={ true } style={{ paddingTop: 0, paddingBottom: 0 }}>
+				<div className="csb-tabs__menu">
 					{ menuItems }
 				</div>
-			</div>
+			</Section>
 
-			<div className="csb-page__content">
-				{ hasTitle && (
-					<div className="csb-page__container">
-						<h2 className="csb-subtitle">{ title }</h2>
-					</div>
-				)}
+			{ hasTitle && (
+				<Section contained={ true }>
+					<p className="csb-page__title">{ title }</p>
+				</Section>
+			)}
 
-				{ panelItems }
-			</div>
+			{ panelItems }
 		</div>
 	);
 };
