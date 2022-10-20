@@ -35,12 +35,13 @@ const Section = ({ title, border, container, contained, children, ...args }) => 
 						content: '',
 						date: '',
 						tag: '',
+						small: false,
 					},
 					title
 				);
 
 				getTitle = (
-					<h2 className={`csb-section__title${ ( !isUndefined( objTitle.date ) || !isUndefined( objTitle.tag ) ) ? ' csb-section__title-tag' : '' }`}>
+					<h2 className={`csb-section__title${ true === objTitle.small ? ' csb-section__title--sm' : '' }${ ( !isUndefined( objTitle.date ) || !isUndefined( objTitle.tag ) ) ? ' csb-section__title-tag' : '' }`}>
 						{ objTitle.content }
 						{ !isUndefined( objTitle.date ) && <Tag color="blue">{ objTitle.date }</Tag> }
 						{ !isUndefined( objTitle.tag ) && (

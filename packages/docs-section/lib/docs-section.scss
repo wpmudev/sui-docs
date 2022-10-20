@@ -69,6 +69,12 @@ $breakpoints: (
 		font-size: 18px;
 		font-weight: 700;
 		line-height: 32px;
+
+		&--sm {
+			margin-bottom: math.div(map.get($gutter, sm), 2);
+			font-size: 16px;
+			line-height: 24px;
+		}
 	}
 
 	&__title-tag {
