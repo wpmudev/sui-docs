@@ -79,6 +79,7 @@ export const parameters = {
 					['Changelog', 'Roadmap'],
 					'CSS Framework',
 					[
+						'Overview',
 						'Colors',
 						'Typography',
 						'Layout',
