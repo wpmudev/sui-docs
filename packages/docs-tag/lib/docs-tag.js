@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+
+// Import required components.
 import { Tooltip } from "@wpmudev/docs-tooltip";
 
+// Import required styles.
+import "./docs-tag.scss";
+
 // Build "tag" component.
-const Tag = ({ id, color, light, tooltip, children, ...args }) => {
+const Tag = ({ id, color, light, uppercase, tooltip, children, ...args }) => {
 	const [ isHovering, setIsHovering ] = useState( false );
 
 	const handleMouseOver = () => {
@@ -31,6 +36,10 @@ const Tag = ({ id, color, light, tooltip, children, ...args }) => {
 
 	if ( true === light ) {
 		tagClass += ' csb-tag--light';
+	}
+
+	if ( true === uppercase ) {
+		tagClass += ' csb-tag--uppercase';
 	}
 
 	// Return markup with tooltip.
