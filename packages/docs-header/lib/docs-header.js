@@ -1,10 +1,14 @@
 import React from "react";
+
+// Import required components.
 import { Tag } from "@wpmudev/docs-tag";
+
+// Import required styles.
+import "./docs-header.scss";
 
 // Build "header" component.
 const Header = ({ title, border, status, ...args }) => {
 	const hasTitle = !isUndefined(title) ? true : false;
-	const hasBorder = !isUndefined(border) ? border : true;
 	const hasStatus = !isUndefined(status) ? true : false;
 
 	if ( !hasTitle ) {
@@ -15,8 +19,8 @@ const Header = ({ title, border, status, ...args }) => {
 
 	let headerClass = 'csb-header';
 
-	if ( hasBorder ) {
-		headerClass += ' csb-header--with-border';
+	if ( true === border ) {
+		headerClass += ' csb-header--border';
 	}
 
 	let statusName, statusDesc, statusColor;
@@ -54,7 +58,7 @@ const Header = ({ title, border, status, ...args }) => {
 
 	return (
 		<div className={ headerClass } { ...args }>
-			<h1 className="csb-title">
+			<h1 className="csb-header__title">
 				{ title }
 
 				{( hasStatus && statusName ) && (
