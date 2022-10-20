@@ -1,16 +1,90 @@
 import { Meta } from '@storybook/addon-docs';
-import { Docs } from '@wpmudev/docs-elements';
+import { Page } from '@wpmudev/docs-page';
+import { Section } from '@wpmudev/docs-section';
+import { List } from '@wpmudev/docs-list';
 
 <Meta title="SUI/What's New/Roadmap" />
 
-<Docs.Page title="Roadmap" light={ true }>
-	<Docs.Content
-		title={
-			<>This is the roadmap of Shared UI Design System, based on our planned design and development path. Subject to change based on products need and users feedback. Full backlog can be found on our <a href="https://incsub.atlassian.net/browse/SUI" target="_blank" rel="nofollow">JIRA board</a>.</>
-		}>
-		<Docs.Section>
-			<p>Roadmap content goes here...</p>
-		</Docs.Section>
-	</Docs.Content>
-	<Docs.Footer />
-</Docs.Page>
+<Page.Simple
+	title="Roadmap"
+	subtitle={
+		<>This is the roadmap of Shared UI Design System, based on our planned design and development path. Subject to change based on products need and users feedback. Full backlog can be found on our <a href="https://incsub.atlassian.net/browse/SUI" target="_blank" rel="nofollow">JIRA board</a>.</>
+	}>
+	<Section
+		title="Quarter 1"
+		border={ true }
+		style={{ paddingTop: 0 }}>
+		<List>
+			<div label={
+				<s>Content on modals header is being cut-off.</s>
+			} />
+			<div label={
+				<s>Work on improving color-picker auto-fill.</s>
+			} />
+			<div label={
+				<s>There are a couple of issues on the JS files related to undefined variables or callback errors on functions.</s>
+			} />
+			<div label={
+				<s>Some elements require styling improvements to fix clickable area.</s>
+			} />
+			<div label={
+				<s>On <strong>insert variables</strong> element the dropdown list shouldn't store the selected option.</s>
+			} />
+			<div label={
+				<s>Conflicts between Shared UI React components and Shared UI jQuery library.</s>
+			} />
+			<div label={
+				<s>Work on improve screen reader navigation for some elements.</s>
+			} />
+			<div label={
+				<s>High contrast mode for dropdown list is not working.</s>
+			} />
+		</List>
+	</Section>
+	<Section title="Quarter 2" border={ true }>
+		<List>
+			<div label={
+				<s>Improve documentation on the showcase.</s>
+			} />
+			<div label={
+				<s>Work on accessibility issues for right-to-left languages.</s>
+			} />
+			<div label={
+				<s>Fix conflicts with other plugins/themes like WP Bakery or Elementor.</s>
+			} />
+			<div label={
+				<s>Work on improve screen reader navigation for some elements.</s>
+			} />
+			<div label={
+				<s>Regular maintenance for styles to avoid z-index issues.</s>
+			} />
+			<div label={
+				<s>Prepare Shared UI 3 new structure and repos.</s>
+			} />
+		</List>
+	</Section>
+	<Section
+		title={{
+			content: "Quarter 3",
+			tag: "In Progress"
+		}}
+		border={ true }>
+		<List>
+			<div label={
+				<s>Regular maintenance for Shared UI 2 stylesheets.</s>
+			} />
+			<div label="Setup the Documentation repo." />
+			<div label="Work on the CSS Framework repo." />
+			<div label="Setup the Icons Pack repo." />
+			<div label="Work on the black friday banners and other promotional components." />
+			<div label="Work on updating the SUI React repo to match SUI 3 new requirements." />
+		</List>
+	</Section>
+	<Section title="Quarter 4">
+		<List>
+			<div label="Official release of CSS Framework for Shared UI 3." />
+			<div label="Official release of Icons Pack for Shared UI 3." />
+			<div label="Update SMUSH (our beta project) to Shared UI 3 and following its guidelines." />
+		</List>
+	</Section>
+</Page.Simple>
