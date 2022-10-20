@@ -1,5 +1,8 @@
 import React from "react";
 
+// Import required components.
+import { Tag } from "@wpmudev/docs-tag";
+
 // Import required styles.
 import "./docs-section.scss";
 
@@ -16,20 +19,53 @@ const Section = ({ title, border, container, contained, children, ...args }) => 
 		sectionClass += ' csb-section--border';
 	}
 
+	let getTitle = (
+		<h2 className="csb-section__title">{ title }</h2>
+	);
+
+	if ( hasTitle ) {
+		if ( 'object' === typeof title ) {
+			if ( Array.isArray( title ) ) {
+				throw new Error(
+					`\nOnly object and string is allowed in title property.`
+				);
+			} else {
+				const objTitle = Object.assign(
+					{
+						content: '',
+						date: '',
+						tag: '',
+					},
+					title
+				);
+
+				getTitle = (
+					<h2 className={`csb-section__title${ ( !isUndefined( objTitle.date ) || !isUndefined( objTitle.tag ) ) ? ' csb-section__title-tag' : '' }`}>
+						{ objTitle.content }
+						{ !isUndefined( objTitle.date ) && <Tag color="blue">{ objTitle.date }</Tag> }
+						{ !isUndefined( objTitle.tag ) && (
+							<Tag color="yellow">{ objTitle.tag }</Tag>
+						)}
+					</h2>
+				);
+			}
+		}
+	}
+
 	if ( hasContainer ) {
 		return (
 			<div className={ sectionClass } { ...args }>
 				<div className="csb-section__inner">
 					{ isContained && (
 						<div className="csb-section__contained">
-							{ hasTitle && <h2 className="csb-section__title">{ title }</h2> }
+							{ hasTitle && getTitle }
 							{ children }
 						</div>
 					)}
 
 					{ !isContained && (
 						<>
-							{ hasTitle && <h2 className="csb-section__title">{ title }</h2> }
+							{ hasTitle && getTitle }
 							{ children }
 						</>
 					)}
@@ -42,14 +78,14 @@ const Section = ({ title, border, container, contained, children, ...args }) => 
 		<div className={ sectionClass } { ...args }>
 			{ isContained && (
 				<div className="csb-section__contained">
-					{ hasTitle && <h2 className="csb-section__title">{ title }</h2> }
+					{ hasTitle && getTitle }
 					{ children }
 				</div>
 			)}
 
 			{ !isContained && (
 				<>
-					{ hasTitle && <h2 className="csb-section__title">{ title }</h2> }
+					{ hasTitle && getTitle }
 					{ children }
 				</>
 			)}

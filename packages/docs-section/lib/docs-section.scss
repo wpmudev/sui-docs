@@ -70,4 +70,14 @@ $breakpoints: (
 		font-weight: 700;
 		line-height: 32px;
 	}
+
+	&__title-tag {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+
+		.csb-tag {
+			margin-left: 10px;
+		}
+	}
 }
