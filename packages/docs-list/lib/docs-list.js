@@ -4,11 +4,20 @@ import React, { Children } from "react";
 import "./docs-list.scss";
 
 // Build "list" component.
-const List = ({ children, ...args }) => {
+const List = ({ id, title, children, ...args }) => {
+	const hasId = !isUndefined(id) ? true : false;
+	const hasTitle = !isUndefined(title) ? true : false;
+
+	if ( hasTitle && !hasId ) {
+		throw new Error(
+			`\nLists with title require a unique ID for accessibility purposes.`
+		);
+	}
+
 	const items = Children.map( children, ( item, index ) => {
-		const subitems = Children.map( item.props.children, ( subitem, index ) => {
+		const subitems = Children.map( item.props.children, ( subitem, subindex ) => {
 			return (
-				<li key={ index }>
+				<li key={ index + '-' + subindex }>
 					{ subitem.props.label }
 				</li>
 			);
@@ -27,9 +36,18 @@ const List = ({ children, ...args }) => {
 	});
 
 	return (
-		<ul className="csb-list" { ...args }>
-			{ items }
-		</ul>
+		<>
+			{ hasTitle && (
+				<h3 id={ id } className="csb-list__title">{ title }</h3>
+			)}
+
+			<ul
+				className="csb-list"
+				{ ... ( hasTitle && { 'aria-labelledby': id } ) }
+				{ ...args }>
+				{ items }
+			</ul>
+		</>
 	);
 }
 
