@@ -57,14 +57,16 @@ Page.Simple = ({ title, subtitle, status, children, ...args }) => {
 	);
 }
 
-Page.Tabs = ({ title, status, ...args }) => {
+Page.Tabs = ({ title, subtitle, status, children, ...args }) => {
 	return (
 		<div className="csb-page" { ...args }>
 			<Header title={ title } border={ false } status={ status } />
 
-			<Tabs { ... ( !isUndefined( subtitle ) && { title: subtitle } ) }>
-				{ children }
-			</Tabs>
+			<Body>
+				<Tabs { ... ( !isUndefined( subtitle ) && { title: subtitle } ) }>
+					{ children }
+				</Tabs>
+			</Body>
 
 			<SetFooter />
 		</div>

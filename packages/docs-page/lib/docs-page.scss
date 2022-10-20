@@ -85,23 +85,3 @@ $breakpoints: (
 		line-height: 32px;
 	}
 }
-
-.csb-content {
-	width: 100%;
-	max-width: 100%;
-
-	&--lg {
-
-		@include media(min-width, md) {
-			padding-top: map.get($gutter, md);
-			padding-bottom: map.get($gutter, md);
-		}
-	}
-
-	&--contained {
-
-		@include media(min-width, md) {
-			max-width: 700px;
-		}
-	}
-}
