@@ -4,7 +4,7 @@ import React from "react";
 import "./docs-button.scss";
 
 // Build "button" component.
-const Button = ({ label, icon, style, color, className, ...args }) => {
+const Button = ({ type, label, icon, style, color, small, className, ...args }) => {
 	let btnClass = 'csb-button';
 
 	switch( style ) {
@@ -22,22 +22,44 @@ const Button = ({ label, icon, style, color, className, ...args }) => {
 		btnClass += ' ' + 'csb-button--' + color;
 	}
 
+	if ( !isUndefined( small ) && small ) {
+		btnClass += ' ' + 'csb-button--sm';
+	}
+
 	if ( !isUndefined( className ) ) {
 		btnClass += ' ' + className;
 	}
 
 	return (
-		<button className={ btnClass } { ...args }>
-			{ !isUndefined( icon ) && (
-				<span className="csb-button__icon">
-					<span className={`csb-icon csb-icon--${ icon }`} />
-				</span>
+		<>
+			{ 'link' !== type && (
+				<button className={ btnClass } { ...args }>
+					{ !isUndefined( icon ) && (
+						<span className="csb-button__icon">
+							<span className={`csb-icon csb-icon--${ icon }`} />
+						</span>
+					)}
+
+					<span className="csb-button__label">
+						{ label }
+					</span>
+				</button>
 			)}
 
-			<span className="csb-button__label">
-				{ label }
-			</span>
-		</button>
+			{ 'link' === type && (
+				<a className={ btnClass } { ...args }>
+					{ !isUndefined( icon ) && (
+						<span className="csb-button__icon">
+							<span className={`csb-icon csb-icon--${ icon }`} />
+						</span>
+					)}
+
+					<span className="csb-button__label">
+						{ label }
+					</span>
+				</a>
+			)}
+		</>
 	);
 }
 

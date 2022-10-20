@@ -6,7 +6,14 @@
 	outline: none;
 	box-shadow: none;
 	color: #FFF;
+	text-decoration: none;
 	transition: 0.2s ease;
+
+	&:hover,
+	&:focus {
+		outline: none;
+		box-shadow: none;
+	}
 
 	&__icon,
 	&__label {
@@ -25,10 +32,12 @@
 		&:hover,
 		&:active {
 			background: #184291;
+			color: #FFF;
 		}
 
 		&:focus {
 			background: #081630;
+			color: #FFF;
 		}
 
 		.csb-button__label {
@@ -76,6 +85,14 @@
 
 		.csb-button__label {
 			line-height: 20px;
+		}
+	}
+
+	&--sm {
+		padding: 6px 14px;
+
+		.csb-button__label {
+			font-size: 12px;
 		}
 	}
 }
