@@ -52,72 +52,75 @@ $breakpoints: (
 		padding: map.get($gutter, xl) map.get($gutter, lg);
 	}
 
-	&__content {
+	.csb-banner {
 
-		@include media(min-width, sm) {
+		&__content {
+
+			@include media(min-width, sm) {
+				min-width: 1px;
+				flex: 1;
+			}
+
+			@include media(min-width, lg) {
+				max-width: 500px;
+			}
+		}
+
+		&__image {
 			min-width: 1px;
 			flex: 1;
+			padding: 0 map.get($gutter, md);
+
+			@include media(max-width, md) {
+				display: none;
+			}
+
+			@include media(min-width, lg) {
+				margin-left: map.get($gutter, lg);
+			}
+
+			img {
+				max-width: 100%;
+				display: block;
+				margin: 0 auto;
+			}
 		}
 
-		@include media(min-width, lg) {
-			max-width: 500px;
-		}
-	}
-
-	&__image {
-		min-width: 1px;
-		flex: 1;
-		padding: 0 map.get($gutter, md);
-
-		@include media(max-width, md) {
-			display: none;
+		&__title,
+		&__subtitle {
+			margin: 0;
+			color: #fff;
+			letter-spacing: -0.25px;
 		}
 
-		@include media(min-width, lg) {
-			margin-left: map.get($gutter, lg);
+		&__title {
+			font-size: 38px;
+			font-weight: bold;
+			line-height: 40px;
+
+			@include media(min-width, sm) {
+				font-size: 46px;
+				line-height: 52px;
+			}
+
+			+ .csb-banner__subtitle {
+				margin-top: map.get($gutter, md);
+			}
 		}
 
-		img {
-			max-width: 100%;
-			display: block;
-			margin: 0 auto;
-		}
-	}
+		&__subtitle {
+			font-size: 24px;
+			font-weight: 500;
+			line-height: 36px;
 
-	&__title,
-	&__subtitle {
-		margin: 0;
-		color: #fff;
-		letter-spacing: -0.25px;
-	}
+			@include media(min-width, sm) {
+				font-size: 32px;
+				line-height: 44px;
+			}
 
-	&__title {
-		font-size: 38px;
-		font-weight: bold;
-		line-height: 40px;
-
-		@include media(min-width, sm) {
-			font-size: 46px;
-			line-height: 52px;
-		}
-
-		+ .csb-banner__subtitle {
-			margin-top: map.get($gutter, md);
-		}
-	}
-
-	&__subtitle {
-		font-size: 24px;
-		font-weight: 500;
-		line-height: 36px;
-
-		@include media(min-width, sm) {
-			font-size: 32px;
-			line-height: 44px;
-		}
-
-		+ .csb-banner__cta {
-			margin-top: map.get($gutter, md);
+			+ .csb-banner__cta {
+				margin-top: map.get($gutter, md);
+			}
 		}
 	}
 }
