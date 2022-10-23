@@ -45,6 +45,8 @@
     "react": "^18.2.0"
   },
   "dependencies": {
-    "@wpmudev/docs-button": "^0.0.0"
+    "@wpmudev/docs-button": "^0.0.0",
+    "@wpmudev/docs-code": "^0.0.0",
+    "@wpmudev/docs-grid": "^0.0.0"
   }
 }
