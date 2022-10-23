@@ -4,9 +4,9 @@ import React from "react";
 import "./docs-code.scss";
 
 // Build "code" component.
-const Code = ({ small, dark, children, ...args }) => {
+const Code = ({ small, theme, fullWidth, children, ...args }) => {
 	const hasSmall = !isUndefined( small ) ? true : false;
-	const hasDark = !isUndefined( dark ) ? true : false;
+	const isfullWidth = !isUndefined( fullWidth ) ? true : false;
 
 	let codeClass = '';
 
@@ -14,17 +14,27 @@ const Code = ({ small, dark, children, ...args }) => {
 		codeClass += ' csb-code--sm';
 	}
 
-	if ( hasDark && true === dark ) {
-		codeClass += ' csb-code--dark';
+	switch ( theme ) {
+		case 'dark':
+		case 'ghost':
+			codeClass += ' csb-code--theme-' + theme;
+			break;
+
+		default:
+			codeClass += ' csb-code--theme-light';
+			break;
+	}
+
+	if ( isfullWidth && true === fullWidth ) {
+		codeClass += ' csb-code--block';
 	}
 
 	return (
-		<span
-			role="code"
+		<code
 			className={`csb-code${ !isUndefined( codeClass ) ? codeClass : '' }`}
 			{ ...args }>
 			{ children }
-		</span>
+		</code>
 	);
 }
 
