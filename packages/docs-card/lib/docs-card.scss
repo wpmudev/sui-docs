@@ -113,4 +113,46 @@ $breakpoints: (
 	&--center {
 		text-align: center;
 	}
+
+	// VARIATION: Color Card.
+	&--color {
+		overflow: hidden;
+		padding: 0;
+		border-radius: 4px;
+		color: #1A1A1A;
+
+		.csb-card__preview {
+			padding: map.get($gutter, sm);
+			padding-top: #{map.get($gutter, sm) + 56px};
+
+			h3 {
+				margin: 0;
+				font-size: 12px;
+				font-weight: 700;
+				line-height: 20px;
+				text-transform: uppercase;
+			}
+		}
+
+		.csb-card__info {
+			margin: 0;
+			padding: map.get($gutter, sm);
+
+			h4, p {
+				color: #1A1A1A;
+			}
+
+			h4 {
+				margin: 0 0 5px;
+				font-size: 12px;
+				font-weight: 700;
+				line-height: 20px;
+				text-transform: uppercase;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
 }
