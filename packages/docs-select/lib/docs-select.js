@@ -1,5 +1,8 @@
 import React, { Children } from "react";
 
+// Import required styles.
+import "./docs-select.scss";
+
 // Build "select" component.
 const Select = ({ children, ...args }) => {
 	const options = Children.map( children, ( item, index ) => {
