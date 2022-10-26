@@ -226,6 +226,11 @@
 
 	#panel-tab-content .docblock-argstable-body tr td {
 		background: var(--csb-mono-color--white) !important;
+	}
+
+	/** Hide footer pages from sidebar. */
+	*[data-item-id='sui-terms--page'] {
+		display: none !important;
 	}</style><script>// Workaround to increase the left panel width just enough to show even the longer story names
 	// based on https://github.com/storybookjs/storybook/issues/9682#issuecomment-983356523
 	const DEFAULT_MINIMUM_LEFT_PANEL_WIDTH = 260; // Original default is 230
