@@ -1,9 +1,12 @@
-.csb-preview {
-	margin: 0 0 20px;
-	border-color: #BCBFCB;
-	box-shadow: none;
+.sbdocs-preview {
 
-	&:last-child {
-		margin-bottom: 0;
+	&.csb-preview {
+		margin: 0 0 20px;
+		border-color: #BCBFCB;
+		box-shadow: none;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }

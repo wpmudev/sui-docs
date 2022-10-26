@@ -4,7 +4,7 @@ import { Canvas } from '@storybook/addon-docs';
 // Import required styles.
 import "./docs-preview.scss";
 
-// Build "switcher" component.
+// Build "preview" component.
 const Preview = ({ wrapper, children }) => {
 	useEffect( () => {
 		/**
@@ -41,14 +41,14 @@ const Preview = ({ wrapper, children }) => {
 
 	return (
 		<Canvas className="csb-preview">
-			{ true === wrapper && (
-				<div className="sui-wrap sui-theme--light">
+			<div className="sui-wrap sui-theme--light">
+				{ true === wrapper && (
 					<div className="sui-layout sui-layout--spacing">
-						{ children }
+							{ children }
 					</div>
-				</div>
-			)}
-			{ true !== wrapper && children }
+				)}
+				{ true !== wrapper && children }
+			</div>
 		</Canvas>
 	);
 }
