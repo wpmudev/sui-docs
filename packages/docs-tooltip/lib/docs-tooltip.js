@@ -1,5 +1,8 @@
 import React from "react";
 
+// Import required styles.
+import "./docs-tooltip.scss";
+
 // Build "tooltip" component.
 const Tooltip = ({ id, description, active = false, children, ...args }) => {
 	if ( isUndefined( id ) ) {
@@ -10,7 +13,7 @@ const Tooltip = ({ id, description, active = false, children, ...args }) => {
 
 	return (
 		<div
-			className={ `csb-tooltip${ active && ' csb-tooltip--active' }` }
+			className={ `csb-tooltip${ active ? ' csb-tooltip--active' : '' }` }
 			{ ...args }>
 			{ children }
 
