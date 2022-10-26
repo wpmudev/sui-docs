@@ -56,6 +56,10 @@ const Header = ({ title, border, status, ...args }) => {
 			break;
 	}
 
+	if ( hasStatus && statusName ) {
+		headerClass += ' csb-header--status';
+	}
+
 	return (
 		<div className={ headerClass } { ...args }>
 			<h1 className="csb-header__title">
@@ -66,6 +70,7 @@ const Header = ({ title, border, status, ...args }) => {
 						id={ `page-status--${ status }` }
 						color={ statusColor }
 						light={ true }
+						uppercase={ true }
 						tooltip={ statusDesc }>
 						{ statusName }
 					</Tag>

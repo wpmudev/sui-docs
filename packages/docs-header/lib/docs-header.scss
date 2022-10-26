@@ -45,21 +45,43 @@ $breakpoints: (
 		padding: map.get($gutter, md) map.get($gutter, lg) map.get($gutter, sm);
 	}
 
-	&--border {
-		padding-bottom: map.get($gutter, sm);
-		border-bottom: 1px solid #E6E6E6;
+	// Elements
+	.csb-header {
 
-		@include media(min-width, md) {
-			padding-bottom: map.get($gutter, md);
+		&__title {
+			margin: 0;
+			color: #1A1A1A;
+			font-size: 36px;
+			font-weight: 700;
+			line-height: 44px;
+			letter-spacing: -0.25px;
 		}
 	}
 
-	&__title {
-		margin: 0;
-		color: #1A1A1A;
-		font-size: 36px;
-		font-weight: 700;
-		line-height: 44px;
-		letter-spacing: -0.25px;
+	// Modifiers
+	&.csb-header {
+
+		&--border {
+			padding-bottom: map.get($gutter, sm);
+			border-bottom: 1px solid #E6E6E6;
+
+			@include media(min-width, md) {
+				padding-bottom: map.get($gutter, md);
+			}
+		}
+
+		&--status {
+
+			.csb-header__title {
+				display: flex;
+				flex-flow: row wrap;
+				align-items: center;
+
+				> .csb-tooltip,
+				> .csb-tag {
+					margin-left: 10px;
+				}
+			}
+		}
 	}
 }
