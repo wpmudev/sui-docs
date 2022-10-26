@@ -18,6 +18,10 @@
 			&, * {
 				font-family: ui-monospace, Menlo, Monaco, "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Droid Sans Mono", "Courier New", monospace;
 			}
+
+			span, .token, .tag, .punctuation, .comment {
+				color: #1F2852;
+			}
 		}
 
 		button {
