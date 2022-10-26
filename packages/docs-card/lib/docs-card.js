@@ -84,6 +84,7 @@ Card.Color = ({ content, theme, overWhite, ...args }) => {
 			shade: '',
 			prefix: '',
 			hex: '#000000',
+			variables: true,
 		},
 		content
 	);
@@ -92,7 +93,7 @@ Card.Color = ({ content, theme, overWhite, ...args }) => {
 	const hasShade = !isUndefined( objContent.shade ) ? true : false;
 	const hasPrefix = !isUndefined( objContent.prefix ) ? true : false;
 	const hasHex = !isUndefined( objContent.hex ) ? true : false;
-	const hasHsl = !isUndefined( objContent.hsl ) ? true : false;
+	const hasVariables = !isUndefined( objContent.variables ) ? true : false;
 
 	// Check if `theme` property exists.
 	if ( hasTheme ) {
@@ -124,7 +125,7 @@ Card.Color = ({ content, theme, overWhite, ...args }) => {
 			</div>
 
 			<div className="csb-card__info">
-				{ hasShade && (
+				{ ( hasShade && hasVariables ) && (
 					<Row>
 						<Col size="6">
 							<h4>SCSS Variables</h4>
