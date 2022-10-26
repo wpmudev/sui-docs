@@ -73,6 +73,19 @@ Page.Tabs = ({ title, subtitle, status, children, ...args }) => {
 	);
 }
 
+Page.Canvas = ({ children, ...args }) => {
+	return (
+		<div
+			className="csb-page"
+			style={{ background: 'transparent' }}
+			{ ...args }>
+			<Body>
+				{ children }
+			</Body>
+		</div>
+	);
+}
+
 // Build global footer.
 const SetFooter = () => {
 	return (
