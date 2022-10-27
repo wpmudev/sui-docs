@@ -90,8 +90,8 @@ Page.Canvas = ({ children, ...args }) => {
 const SetFooter = () => {
 	return (
 		<Footer>
-			<div label="Terms" kind="sui-terms--page" />
-			<div label="Privacy" />
+			<div label="Terms of Use" kind="sui-terms--page" />
+			<div label="Privacy Policy" link="https://incsub.com/privacy-policy/" />
 		</Footer>
 	);
 }
