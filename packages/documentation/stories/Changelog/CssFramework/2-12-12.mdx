@@ -1,0 +1,45 @@
+import { Section, List, Code } from '@wpmudev/storybook';
+
+<Section
+	title={{
+		content: '2.12.12',
+		date: '2022-09-21'
+	}}
+	border={ true }>
+	<List title="Improvements" id="css-improvements--2-12-12">
+		<div label={<Code small={true}>accordions</Code>}>
+			<div label="Focus design improvement when content opens." />
+		</div>
+	</List>
+	<List title="Bug Fixes" id="css-bugs--2-12-12">
+		<div label={<Code small={true}>accordions</Code>}>
+			<div label="Content overflows when hidden." />
+		</div>
+		<div label={<Code small={true}>insert-variables</Code>}>
+			<div label="Removed first item as selected." />
+			<div label="Make fonts GDPR compliant." />
+		</div>
+	</List>
+	<List title="Accessibility" id="css-aria--2-12-12">
+		<div label={<Code small={true}>dropdown</Code>}>
+			<div label="Red buttons don't change color." />
+		</div>
+		<div label={<Code small={true}>side-tabs</Code>}>
+			<div label="Tabs not visible in high-contrast mode." />
+		</div>
+		<div label={<Code small={true}>icons</Code>}>
+			<div label="Required icon in high-contrast mode." />
+			<div label="RTL mode switch icons." />
+		</div>
+		<div label={<Code small={true}>calendar</Code>}>
+			<div label="Date picker in high-contrast mode." />
+		</div>
+		<div label={<Code small={true}>select2</Code>}>
+			<div label="Improve element in high-contrast mode." />
+			<div label="Screen readers improvement." />
+		</div>
+		<div label={<Code small={true}>progress-bar</Code>}>
+			<div label="Make element properly accessible." />
+		</div>
+	</List>
+</Section>

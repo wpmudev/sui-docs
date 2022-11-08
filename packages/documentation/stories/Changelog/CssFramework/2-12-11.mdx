@@ -1,0 +1,33 @@
+import { Section, List, Code } from '@wpmudev/storybook';
+
+<Section
+	title={{
+		content: '2.12.11',
+		date: '2022-08-08'
+	}}>
+	<List title="Bug Fixes" id="css-bugs--2-12-11">
+		<div label={<Code small={true}>checkbox</Code>}>
+			<div label="Element is placed over select dropdown list." />
+		</div>
+		<div label={<Code small={true}>insert-variables</Code>}>
+			<div label="Dropdown option invisible on hover." />
+		</div>
+		<div label={<Code small={true}>select</Code>}>
+			<div label="Double padding on dropdown makes the optgroup items look shrink." />
+		</div>
+	</List>
+	<List title="Accessibility" id="css-aria--2-12-11">
+		<div label={<Code small={true}>tree-selector</Code>}>
+			<div label="Support RTL." />
+		</div>
+		<div label={<Code small={true}>icon-button</Code>}>
+			<div label="Loading state needs to notify the user action is performing." />
+		</div>
+		<div label={<Code small={true}>radio</Code>}>
+			<div label="Element not visible when high-contrast mode is enabled." />
+		</div>
+		<div label={<Code small={true}>toggle</Code>}>
+			<div label="Switches not visibile when High Contrast is enabled." />
+		</div>
+	</List>
+</Section>
