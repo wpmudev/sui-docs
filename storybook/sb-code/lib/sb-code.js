@@ -4,7 +4,8 @@ import React from "react";
 import "./styles/sb-code.scss";
 
 // Build "code" component.
-const Code = ({ small, theme, fullWidth, children, ...args }) => {
+const Code = ({ small, theme, fullWidth, children, className, ...args }) => {
+	const hasClass = !isUndefined( className ) ? true : false;
 	const hasSmall = !isUndefined( small ) ? true : false;
 	const isfullWidth = !isUndefined( fullWidth ) ? true : false;
 
@@ -27,6 +28,10 @@ const Code = ({ small, theme, fullWidth, children, ...args }) => {
 
 	if ( isfullWidth && true === fullWidth ) {
 		codeClass += ' csb-code--block';
+	}
+
+	if ( hasClass ) {
+		codeClass += ' ' + className;
 	}
 
 	return (

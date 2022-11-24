@@ -4,7 +4,7 @@ import React, { Children } from "react";
 import "./styles/sb-select.scss";
 
 // Build "select" component.
-const Select = ({ children, ...args }) => {
+const Select = ({ small, children, ...args }) => {
 	const options = Children.map( children, ( item, index ) => {
 		return (
 			<option key={ index } value={ item.props.value }>
@@ -14,7 +14,9 @@ const Select = ({ children, ...args }) => {
 	});
 
 	return (
-		<select className="csb-select" { ...args }>
+		<select
+			className={`csb-select${ true === small ? ' csb-select--sm' : '' }`}
+			{ ...args }>
 			{ options }
 		</select>
 	);
