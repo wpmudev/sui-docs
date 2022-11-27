@@ -23,8 +23,8 @@
   "workspaces": [
     "./packages/*",
     "./storybook/*",
-    "./sui-css/packages/*",
-    "./sui-react/packages/*"
+    "./packages/sui-css/packages/*",
+    "./packages/sui-react/packages/*"
   ],
   "dependencies": {},
   "devDependencies": {
