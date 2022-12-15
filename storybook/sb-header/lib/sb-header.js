@@ -40,7 +40,7 @@ const Header = ({ title, border, status, ...args }) => {
 
 		case 'ready':
 			statusName = 'Ready';
-			statusDesc = 'Ready, can be used in production'
+			statusDesc = 'Ready, can be used in production';
 			statusColor = 'blue';
 			break;
 
