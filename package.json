@@ -65,7 +65,8 @@
     "format-files": "clear && yarn prettier --write .",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy": "yarn run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\""
+    "deploy": "yarn run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\"",
+    "release": "lerna run release"
   },
   "changelog": {
     "repo": "wpmudev/sui-css",

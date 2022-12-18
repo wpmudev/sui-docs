@@ -3,9 +3,7 @@ const path = require('path');
 module.exports = {
 	stories: [
 		"../packages/**/stories/*.stories.mdx",
-		"../packages/**/stories/*.stories.@(js|jsx|ts|tsx)",
-		"../packages/**/packages/**/docs/*.stories.mdx",
-		"../packages/**/packages/**/docs/*.stories.@(js|jsx|ts|tsx)"
+		"../packages/**/stories/*.stories.@(js|jsx|ts|tsx)"
 	],
 	addons: [
 		"@storybook/addon-links",
