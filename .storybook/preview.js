@@ -78,6 +78,12 @@ export const parameters = {
 					'Getting Started',
 					"What's New",
 					['Changelog', 'Roadmap'],
+					'Components',
+					[
+						'Overview',
+						'Button',
+						'*'
+					],
 					'CSS Framework',
 					[
 						'Overview',
