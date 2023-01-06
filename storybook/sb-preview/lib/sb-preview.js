@@ -45,7 +45,7 @@ const Preview = ({ wrapper, children }) => {
 		<Canvas className="csb-preview">
 			<div className="sui-wrap sui-theme--light">
 				{ true === wrapper && (
-					<div className="sui-layout sui-layout--spacing">
+					<div className="sui-layout sui-layout--horizontal">
 							{ children }
 					</div>
 				)}
