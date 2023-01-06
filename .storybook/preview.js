@@ -1,4 +1,5 @@
 import React from 'react';
+import "@storybook/addon-console";
 
 import './assets/js/body-class';
 import './assets/js/html-class';
