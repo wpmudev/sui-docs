@@ -83,6 +83,7 @@ Card.Color = ({ content, theme, overWhite, ...args }) => {
 	const isOverWhite = !isUndefined( overWhite ) ? true : false;
 	const objContent = Object.assign(
 		{
+			palette: '',
 			shade: '',
 			prefix: '',
 			hex: '#000000',
@@ -92,6 +93,7 @@ Card.Color = ({ content, theme, overWhite, ...args }) => {
 	);
 
 	// Check if `objContent` variables are empty or null.
+	const hasPalette = !isUndefined( objContent.palette ) ? true : false;
 	const hasShade = !isUndefined( objContent.shade ) ? true : false;
 	const hasPrefix = !isUndefined( objContent.prefix ) ? true : false;
 	const hasHex = !isUndefined( objContent.hex ) ? true : false;
@@ -127,18 +129,12 @@ Card.Color = ({ content, theme, overWhite, ...args }) => {
 			</div>
 
 			<div className="csb-card__info">
-				{ ( hasShade && hasVariables ) && (
+				{ ( hasPalette && hasShade && hasVariables ) && (
 					<Row>
 						<Col size="6">
-							<h4>SCSS Variables</h4>
-							<Code theme="ghost" fullWidth={ true } style={{ marginBottom: 5 }}>
-								$sui-bg-primary--{ objContent.shade }
-							</Code>
-							<Code theme="ghost" fullWidth={ true } style={{ marginBottom: 5 }}>
-								$sui-color-primary--{ objContent.shade }
-							</Code>
+							<h4>SCSS Variable</h4>
 							<Code theme="ghost" fullWidth={ true }>
-								$sui-border-primary--{ objContent.shade }
+								$color-{ objContent.palette }-{ objContent.shade }
 							</Code>
 						</Col>
 					</Row>
