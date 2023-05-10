@@ -81,7 +81,36 @@ export const parameters = {
 					'Components',
 					[
 						'Overview',
-						'Button',
+						'Core Elements',
+						[
+							'Grid',
+							'*'
+						],
+						'Simple Elements',
+						[
+							'Avatar',
+							'Button',
+							'Icon Button',
+							'*',
+						],
+						'Form Elements',
+						[
+							'Form Field',
+							'Input',
+							'Text Field',
+							'Password Field',
+							'Checkbox',
+							'Radio',
+							'*'
+						],
+						'Composed Elements',
+						[
+							'*'
+						],
+						'Complex Elements',
+						[
+							'*'
+						],
 						'*'
 					],
 					'CSS Framework',
