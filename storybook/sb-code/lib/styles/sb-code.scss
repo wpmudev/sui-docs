@@ -1,5 +1,5 @@
 // Block.
-.csb-code {
+.sbdocs .csb-code {
 	display: inline-block;
 	padding: 4px 6px;
 	font-size: 12px;
@@ -29,11 +29,12 @@
 			color: #1F2852;
 			line-height: 24px;
 		}
-	}
 
-	&--sm {
-		padding: 0 5px;
-		line-height: 20px;
+		// SIZE: Small.
+		&--sm {
+			padding: 0 5px;
+			line-height: 20px;
+		}
 	}
 
 	&--block {
