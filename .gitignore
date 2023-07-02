@@ -3,6 +3,7 @@ node_modules
 .npmrc
 .changelog
 .dccache
+.idea
 
 # Ignore all error logs.
 *.log
