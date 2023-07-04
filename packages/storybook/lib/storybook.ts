@@ -5,7 +5,7 @@ import Button from './components/button/button';
 import Card from './components/card/card';
 import Code from './components/code/code';
 import Footer from './components/footer/footer';
-import {Row, Col} from './components/grid/grid';
+import { Row, Col } from './components/grid/grid';
 import Header from './components/header/header';
 import List from './components/list/list';
 import Message from './components/message/message';
@@ -42,5 +42,5 @@ export {
 	Table,
 	Tabs,
 	Tag,
-	Tooltip
-}
+	Tooltip,
+};
