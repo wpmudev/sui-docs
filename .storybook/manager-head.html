@@ -113,7 +113,7 @@
 	}
 
 	#storybook-explorer-menu .sidebar-item svg {
-		display: none;
+		display: none !important;
 	}
 
 	#storybook-explorer-menu .sidebar-item span {
@@ -191,6 +191,10 @@
 
 	#panel-tab-content .docblock-argstable-body tr td {
 		background: var(--csb-mono-color--white) !important;
+	}
+
+	div[role=main] > div {
+		box-shadow: none !important;
 	}
 
 	/** Hide footer pages from sidebar. */

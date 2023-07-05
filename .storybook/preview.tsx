@@ -6,6 +6,8 @@ import './assets/js/html-class';
 
 import './assets/css/wordpress.css';
 
+import "../packages/sui-css/src/scss/sui-css.scss"
+
 /**
  * Get devices samples from:
  * https://screensiz.es/
