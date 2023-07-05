@@ -1,7 +1,7 @@
 {
   // We extend it from here!
-  "extends": "@wpmudev/tsconfig/base.json",
+  "extends": "../../tsconfig.json",
   // You can specify your own include/exclude
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

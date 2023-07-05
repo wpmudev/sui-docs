@@ -5,11 +5,11 @@ import "./body.scss";
 
 // Build "body" component.
 const Body = ({ children, ...args }) => {
-    return (
-        <div className="csb-body" { ...args }>
-            { children }
-        </div>
-    );
-}
+	return (
+		<div className="csb-body" {...args}>
+			{children}
+		</div>
+	);
+};
 
 export default Body;
