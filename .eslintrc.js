@@ -16,8 +16,8 @@ module.exports = {
 		"plugin:import/typescript",
 		"plugin:react/recommended",
 		"plugin:react-hooks/recommended",
+		"plugin:eslint-comments/recommended",
 		// "airbnb-typescript",
-		"prettier",
 	],
 	overrides: [
 		{
