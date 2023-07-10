@@ -1,5 +1,6 @@
 import { Meta } from '@storybook/addon-docs';
 import { Page, Row, Col, Card } from "@wpmudev/storybook";
+import { Unstyled } from '@storybook/blocks';
 
 import image from "./images/banner-products.png";
 import image2x from "./images/banner-products@2x.png";
@@ -17,59 +18,61 @@ export const svgCssFramework = (
 
 <Meta title="SUI/Home" />
 
-<Page.Home
-	title="Shared UI"
-	subtitle={
-		<>Design, develop, and deliver coherent product experiences with <a href="https://wpmudev.com/" target="_blank" rel="nofollow">WPMU DEV's</a> design system.</>
-	}
-	action={{
-		link: 'sui-getting-started--page',
-		label: 'Getting Started'
-	}}
-	image={{
-		src: image,
-		src2x: image2x,
-	}}
->
-	<Row gutter="sm">
-		<Col size="2">
-			<Card.Simple
-				title="Components"
-				description="Presentational UI components with encapsulated styles for React framework."
-				action="sui-css-framework-colors"
-				image={{
-					src: cardComponents,
-					src2x: cardComponents2x
-				}}
-				theme="dark"
-				style={{ background: '#1A1A1A' }}
-			/>
-		</Col>
-		<Col size="2">
-			<Card.Simple
-				title="CSS Framework"
-				description="Styles-centric framework that gives you the base styles and structure for any component."
-				action="sui-css-framework-overview"
-				image={{
-					src: cardCss,
-					src2x: cardCss2x
-				}}
-				theme="light"
-				style={{ background: '#F2F2F2' }}
-			/>
-		</Col>
-		<Col size="2">
-			<Card.Simple
-				title="Icons Pack"
-				description="Communicate messages at a glance and draw attention to important information."
-				action="sui-icons-pack--page"
-				image={{
-					src: cardIcons,
-					src2x: cardIcons2x
-				}}
-				theme="light"
-				style={{ background: '#EAF1FE' }}
-			/>
-		</Col>
-	</Row>
-</Page.Home>
+<Unstyled>
+	<Page.Home
+		title="Shared UI"
+		subtitle={
+			<>Design, develop, and deliver coherent product experiences with <a href="https://wpmudev.com/" target="_blank" rel="nofollow">WPMU DEV's</a> design system.</>
+		}
+		action={{
+			link: 'sui-getting-started--page',
+			label: 'Getting Started'
+		}}
+		image={{
+			src: image,
+			src2x: image2x,
+		}}
+	>
+		<Row gutter="sm">
+			<Col size="2">
+				<Card.Simple
+					title="Components"
+					description="Presentational UI components with encapsulated styles for React framework."
+					action="sui-css-framework-colors"
+					image={{
+						src: cardComponents,
+						src2x: cardComponents2x
+					}}
+					theme="dark"
+					style={{ background: '#1A1A1A' }}
+				/>
+			</Col>
+			<Col size="2">
+				<Card.Simple
+					title="CSS Framework"
+					description="Styles-centric framework that gives you the base styles and structure for any component."
+					action="sui-css-framework-overview"
+					image={{
+						src: cardCss,
+						src2x: cardCss2x
+					}}
+					theme="light"
+					style={{ background: '#F2F2F2' }}
+				/>
+			</Col>
+			<Col size="2">
+				<Card.Simple
+					title="Icons Pack"
+					description="Communicate messages at a glance and draw attention to important information."
+					action="sui-icons-pack--page"
+					image={{
+						src: cardIcons,
+						src2x: cardIcons2x
+					}}
+					theme="light"
+					style={{ background: '#EAF1FE' }}
+				/>
+			</Col>
+		</Row>
+	</Page.Home>
+</Unstyled>

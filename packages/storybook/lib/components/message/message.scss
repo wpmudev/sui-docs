@@ -39,7 +39,7 @@ $palettes: (
   }
 
   @each $name, $color in $palettes {
-    &--#{$name} {
+    &--#{"" + $name} {
       box-shadow: inset 3px 0 0 0 $color;
     }
   }
