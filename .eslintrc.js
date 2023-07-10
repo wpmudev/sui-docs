@@ -35,4 +35,13 @@ module.exports = {
 		sourceType: "module",
 	},
 	plugins: ["react"],
+	rules: {
+		"import/no-extraneous-dependencies": [
+			"error",
+			{
+				devDependencies: true,
+				packageDir: "./",
+			},
+		],
+	},
 }

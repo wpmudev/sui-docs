@@ -1,13 +1,13 @@
-import React from 'react';
-import "@storybook/addon-console";
+import React from "react"
+import "@storybook/addon-console"
 
-import './assets/js/body-class';
-import './assets/js/html-class';
+import "./assets/js/body-class"
+import "./assets/js/html-class"
 
-import './assets/css/wordpress.css';
+import "./assets/css/wordpress.css"
 
-import "../packages/sui-css/src/scss/sui-css.scss"
-import "../packages/sui-icons/src/scss/sui-icons.scss"
+// import "../packages/sui-css/src/scss/sui-css.scss"
+// import "../packages/sui-icons/src/scss/sui-icons.scss"
 
 /**
  * Get devices samples from:
@@ -17,48 +17,48 @@ const breakpoints = {
 	xl: {
 		name: 'Dell UltraSharp 24"',
 		styles: {
-			width: '1920px', // Min 1600px
-			height: '1200px',
+			width: "1920px", // Min 1600px
+			height: "1200px",
 		},
-		type: 'extra-large',
+		type: "extra-large",
 	},
 	lg: {
 		name: 'MacBook Air 13"',
 		styles: {
-			width: '1440px', // Min 1200px - Max 1599px
-			height: '900px',
+			width: "1440px", // Min 1200px - Max 1599px
+			height: "900px",
 		},
-		type: 'large',
+		type: "large",
 	},
 	md: {
-		name: 'iPad Pro 12.9-in',
+		name: "iPad Pro 12.9-in",
 		styles: {
-			width: '1024px', // Min 1024px - Max 1199px
-			height: '1366px',
+			width: "1024px", // Min 1024px - Max 1199px
+			height: "1366px",
 		},
-		type: 'medium',
+		type: "medium",
 	},
 	sm: {
-		name: 'iPad Pro 10.5-in',
+		name: "iPad Pro 10.5-in",
 		styles: {
-			width: '834px', // Min 783px - Max 1023px
-			height: '1112px',
+			width: "834px", // Min 783px - Max 1023px
+			height: "1112px",
 		},
-		type: 'small',
+		type: "small",
 	},
 	xs: {
-		name: 'iPhone 12',
+		name: "iPhone 12",
 		styles: {
-			width: '390px', // Min 0 - Max 782px
-			height: '844px',
+			width: "390px", // Min 0 - Max 782px
+			height: "844px",
 		},
-		type: 'extra-small',
+		type: "extra-small",
 	},
-};
+}
 
 export const parameters = {
 	actions: {
-		argTypesRegex: "^on[A-Z].*"
+		argTypesRegex: "^on[A-Z].*",
 	},
 	controls: {
 		matchers: {
@@ -67,70 +67,51 @@ export const parameters = {
 		},
 	},
 	viewport: {
-		viewports: breakpoints
+		viewports: breakpoints,
 	},
 	backgrounds: {
-		disable: true
+		disable: true,
 	},
 	options: {
 		storySort: {
 			order: [
-				'SUI',
+				"SUI",
 				[
-					'Home',
-					'Getting Started',
+					"Home",
+					"Getting Started",
 					"What's New",
-					['Changelog', 'Roadmap'],
-					'Components',
+					["Changelog", "Roadmap"],
+					"Components",
 					[
-						'Overview',
-						'Core Elements',
+						"Overview",
+						"Core Elements",
+						["Grid", "*"],
+						"Simple Elements",
+						["Avatar", "Button", "Icon Button", "*"],
+						"Form Elements",
 						[
-							'Grid',
-							'*'
+							"Form Field",
+							"Input",
+							"Text Field",
+							"Password Field",
+							"Checkbox",
+							"Radio",
+							"*",
 						],
-						'Simple Elements',
-						[
-							'Avatar',
-							'Button',
-							'Icon Button',
-							'*',
-						],
-						'Form Elements',
-						[
-							'Form Field',
-							'Input',
-							'Text Field',
-							'Password Field',
-							'Checkbox',
-							'Radio',
-							'*'
-						],
-						'Composed Elements',
-						[
-							'*'
-						],
-						'Complex Elements',
-						[
-							'*'
-						],
-						'*'
+						"Composed Elements",
+						["*"],
+						"Complex Elements",
+						["*"],
+						"*",
 					],
-					'CSS Framework',
-					[
-						'Overview',
-						'Colors',
-						'Typography',
-						'Layout',
-						'Grid',
-						'*'
-					],
-					'Icons Pack',
-					'*'
-				]
-			]
-		}
-	}
+					"CSS Framework",
+					["Overview", "Colors", "Typography", "Layout", "Grid", "*"],
+					"Icons Pack",
+					"*",
+				],
+			],
+		},
+	},
 }
 
 const WordPress = ({ children }) => {
@@ -141,13 +122,24 @@ const WordPress = ({ children }) => {
 
 				<div id="adminmenuwrap">
 					<ul id="adminmenu">
-						<li className="wp-not-current-submenu wp-menu-separator" aria-hidden="true">
+						<li
+							className="wp-not-current-submenu wp-menu-separator"
+							aria-hidden="true"
+						>
 							<div className="separator"></div>
 						</li>
 
 						<li id="collapse-menu" className="hide-if-no-js">
-							<button type="button" id="collapse-button" aria-label="Collapse Main menu" aria-expanded="true">
-								<span className="collapse-button-icon" aria-hidden="true"></span>
+							<button
+								type="button"
+								id="collapse-button"
+								aria-label="Collapse Main menu"
+								aria-expanded="true"
+							>
+								<span
+									className="collapse-button-icon"
+									aria-hidden="true"
+								></span>
 								<span className="collapse-button-label">Collapse menu</span>
 							</button>
 						</li>
@@ -157,7 +149,12 @@ const WordPress = ({ children }) => {
 
 			<div id="wpcontent">
 				<div id="wpadminbar" className="nojq">
-					<div role="navigation" id="wp-toolbar" className="quicklinks" aria-label="Toolbar">
+					<div
+						role="navigation"
+						id="wp-toolbar"
+						className="quicklinks"
+						aria-label="Toolbar"
+					>
 						<ul id="wp-admin-bar-root-default" className="ab-top-menu">
 							<li id="wp-admin-bar-menu-toggle">
 								<a className="ab-item" href="#" aria-expanded="false">
@@ -170,9 +167,7 @@ const WordPress = ({ children }) => {
 				</div>
 
 				<div id="wpbody" role="main">
-					<div id="wpbody-content">
-						{ children }
-					</div>
+					<div id="wpbody-content">{children}</div>
 
 					<div className="clear"></div>
 				</div>
@@ -180,23 +175,21 @@ const WordPress = ({ children }) => {
 				<div className="clear"></div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 const SuiWrapper = ({ children }) => {
 	return (
 		<WordPress>
-			<div className="sui-wrap sui-theme--light">
-				{children}
-			</div>
+			<div className="sui-wrap sui-theme--light">{children}</div>
 		</WordPress>
-	);
+	)
 }
 
 export const decorators = [
-	( Story ) => (
+	(Story) => (
 		<SuiWrapper>
 			<Story />
 		</SuiWrapper>
-	)
-];
+	),
+]

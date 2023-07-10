@@ -1,86 +1,90 @@
-import React from "react";
+/**
+ * External Dependencies
+ */
+import React from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import classnames from "classnames"
 
-// Import required styles.
-import "./button.scss";
+/**
+ * Internal Dependencies
+ */
+import { isEmpty } from "../../utils"
+import "./button.scss"
 
-// Build "button" component.
-const Button = ({ type, label, icon, style, color, small, className, ...args }) => {
-    let btnClass = 'csb-button';
-
-    switch( style ) {
-        case 'primary':
-        case 'secondary':
-            btnClass += ' ' + 'csb-button--' + style;
-            break;
-
-
-        default:
-            // Do nothing.
-            break;
-    }
-
-    if ( !isUndefined( color ) ) {
-        btnClass += ' ' + 'csb-button--' + color;
-    }
-
-    if ( !isUndefined( small ) && small ) {
-        btnClass += ' ' + 'csb-button--sm';
-    }
-
-    if ( !isUndefined( className ) ) {
-        btnClass += ' ' + className;
-    }
-
-    return (
-        <>
-            { 'link' !== type && (
-                <button className={ btnClass } { ...args }>
-                    { !isUndefined( icon ) && (
-                        <span className="csb-button__icon">
-							<span className={`csb-icon csb-icon--${ icon }`} />
-						</span>
-                    )}
-
-                    <span className="csb-button__label">
-						{ label }
-					</span>
-                </button>
-            )}
-
-            { 'link' === type && (
-                <a className={ btnClass } { ...args }>
-                    { !isUndefined( icon ) && (
-                        <span className="csb-button__icon">
-							<span className={`csb-icon csb-icon--${ icon }`} />
-						</span>
-                    )}
-
-                    <span className="csb-button__label">
-						{ label }
-					</span>
-                </a>
-            )}
-        </>
-    );
+interface ButtonProps {
+	label: string
+	icon?: string
+	style: "primary" | "secondary"
+	color?: "white" | "black"
+	small?: boolean
+	className: string
 }
 
-// Check if element is undefined.
-const isUndefined = (element, isNumber = false) => {
-    const isValid = 'undefined' !== typeof element;
-    const isNotEmpty = '' !== element;
+// All valid attributes in "a" tag
+type aTagAttributes = React.DetailedHTMLProps<
+	React.AnchorHTMLAttributes<HTMLAnchorElement>,
+	HTMLAnchorElement
+>
 
-    if ( element && isValid && isNotEmpty ) {
-        if ( isNumber ) {
-            if ( Number.isNaN(element) ) {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
+// All valid attributes in "button" tag
+type buttonTagAttributes = React.DetailedHTMLProps<
+	React.ButtonHTMLAttributes<HTMLButtonElement>,
+	HTMLButtonElement
+>
 
-    return true;
+// Signature for "button" tag
+function Button({
+	type,
+	style,
+	color,
+	small,
+	icon,
+	className,
+	...props
+}: ButtonProps & { type: "button" } & buttonTagAttributes): React.ReactElement
+
+// Signature for "a" tag
+function Button({
+	type,
+	style,
+	color,
+	small,
+	icon,
+	className,
+	...props
+}: ButtonProps & { type: "link" } & aTagAttributes): React.ReactElement
+
+// Implementation
+function Button({
+	type,
+	style,
+	color,
+	small,
+	icon = "",
+	label,
+	className,
+	...props
+}: { type: "button" | "link" } & ButtonProps) {
+	const btnClass = classnames({
+		"csb-button": true,
+		[`csb-button--${style}`]: ["primary", "secondary"].includes(style),
+		[`csb-button--${color}`]: color,
+		"csb-button--sm": small,
+		[className]: !!className,
+	})
+
+	const ButtonTag = "button" === type ? "button" : "a"
+
+	return (
+		<ButtonTag className={btnClass} {...props}>
+			{!isEmpty(icon) && (
+				<span className="csb-button__icon">
+					<span className={`csb-icon csb-icon--${icon}`} />
+				</span>
+			)}
+			<span className="csb-button__label">{label}</span>
+		</ButtonTag>
+	)
 }
 
-// Publish required component(s).
-export default Button;
+export default Button
