@@ -29,6 +29,12 @@
 	overflow: visible;
 }
 
+.rtl #wpcontent,
+.rtl #wpfooter {
+	margin-right: 160px;
+	margin-left: auto;
+}
+
 /* inner 2 column liquid layout */
 
 .inner-sidebar {
@@ -3733,6 +3739,7 @@ img {
 	#wpcontent {
 		position: relative;
 		margin-left: 0;
+		margin-right: 0;
 		padding-left: 10px;
 	}
 
