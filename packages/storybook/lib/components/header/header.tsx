@@ -1,27 +1,37 @@
+/**
+ *
+ * External Dependencies
+ *
+ */
 import React from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import classnames from "classnames"
 
-// Import required components.
+/**
+ *
+ * Internal Dependencies
+ *
+ */
 import Tag from "../tag/tag"
-
-// Import required styles.
 import "./header.scss"
+import { isEmpty } from "../../utils"
 
-// Build "header" component.
-const Header = ({ title, border, status, ...args }) => {
-	const hasTitle = !isUndefined(title) ? true : false
-	const hasStatus = !isUndefined(status) ? true : false
+interface HeaderProps {
+	title: string
+	border: boolean
+	status?: "planned" | "draft" | "ready" | "dead"
+}
 
-	if (!hasTitle) {
-		throw new Error(`\nTitle is required for Header component.`)
-	}
-
-	let headerClass = "csb-header"
-
-	if (true === border) {
-		headerClass += " csb-header--border"
-	}
-
-	let statusName, statusDesc, statusColor
+const Header: React.FunctionComponent<
+	HeaderProps &
+		React.DetailedHTMLProps<
+			React.HTMLAttributes<HTMLDivElement>,
+			HTMLDivElement
+		>
+> = ({ title, border, status, ...props }) => {
+	let statusName: string
+	let statusDesc: string
+	let statusColor: string
 
 	switch (status) {
 		case "planned":
@@ -49,21 +59,24 @@ const Header = ({ title, border, status, ...args }) => {
 			break
 
 		default:
-			statusName = false
+			statusName = ""
 			statusColor = ""
+			statusDesc = ""
 			break
 	}
 
-	if (hasStatus && statusName) {
-		headerClass += " csb-header--status"
-	}
+	const headerClass = classnames({
+		"csb-header": true,
+		"csb-header--border": border,
+		"csb-header--status": status && !isEmpty(statusName),
+	})
 
 	return (
-		<div className={headerClass} {...args}>
+		<div className={headerClass} {...props}>
 			<h1 className="csb-header__title">
 				{title}
 
-				{hasStatus && statusName && (
+				{status && !isEmpty(statusName) && (
 					<Tag
 						id={`page-status--${status}`}
 						color={statusColor}
@@ -79,23 +92,4 @@ const Header = ({ title, border, status, ...args }) => {
 	)
 }
 
-// Check if element is undefined.
-const isUndefined = (element, isNumber = false) => {
-	const isValid = "undefined" !== typeof element
-	const isNotEmpty = "" !== element
-
-	if (element && isValid && isNotEmpty) {
-		if (isNumber) {
-			if (Number.isNaN(element)) {
-				return false
-			}
-		} else {
-			return false
-		}
-	}
-
-	return true
-}
-
-// Publish required component(s).
 export default Header
