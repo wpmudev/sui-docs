@@ -1,73 +1,63 @@
-import React, { Children } from "react";
+/**
+ *
+ * External Dependencies
+ *
+ */
+import React, { Children } from "react"
 
-// Import required styles.
-import "./list.scss";
+/**
+ *
+ * Internal Dependencies
+ *
+ */
+import "./list.scss"
+import { isEmpty, isUndefined } from "../../utils"
 
-// Build "list" component.
-const List = ({ id, title, children, ...args }) => {
-    const hasId = !isUndefined(id) ? true : false;
-    const hasTitle = !isUndefined(title) ? true : false;
-
-    if ( hasTitle && !hasId ) {
-        throw new Error(
-            `\nLists with title require a unique ID for accessibility purposes.`
-        );
-    }
-
-    const items = Children.map( children, ( item, index ) => {
-        const subitems = Children.map( item.props.children, ( subitem, subindex ) => {
-            return (
-                <li key={ index + '-' + subindex }>
-                    { subitem.props.label }
-                </li>
-            );
-        });
-
-        return (
-            <li key={ index }>
-                { item.props.label }
-                { !isUndefined( item.props.children ) && (
-                    <ul className="csb-sublist">
-                        { subitems }
-                    </ul>
-                )}
-            </li>
-        );
-    });
-
-    return (
-        <>
-            { hasTitle && (
-                <h3 id={ id } className="csb-list__title">{ title }</h3>
-            )}
-
-            <ul
-                className="csb-list"
-                { ... ( hasTitle && { 'aria-labelledby': id } ) }
-                { ...args }>
-                { items }
-            </ul>
-        </>
-    );
+interface ListProps {
+	id?: string
+	title?: string
+	children: JSX.Element[]
 }
 
-// Check if element is undefined.
-const isUndefined = (element, isNumber = false) => {
-    const isValid = 'undefined' !== typeof element;
-    const isNotEmpty = '' !== element;
+const List: React.FunctionComponent<
+	ListProps &
+		React.DetailedHTMLProps<
+			React.HTMLAttributes<HTMLUListElement>,
+			HTMLUListElement
+		>
+> = ({ id = "", title = "", children, ...props }) => {
+	const items = Children.map(children, (item, index) => {
+		const subitems = Children.map(item?.props.children, (subitem, subindex) => {
+			return <li key={index + "-" + subindex}>{subitem.props.label}</li>
+		})
 
-    if ( element && isValid && isNotEmpty ) {
-        if ( isNumber ) {
-            if ( Number.isNaN(element) ) {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
+		return (
+			<li key={index}>
+				{item?.props.label}
+				{!isUndefined(item?.props.children) && (
+					<ul className="csb-sublist">{subitems}</ul>
+				)}
+			</li>
+		)
+	})
 
-    return true;
+	return (
+		<>
+			{!isEmpty(title) && (
+				<h3 id={id} className="csb-list__title">
+					{title}
+				</h3>
+			)}
+
+			<ul
+				className="csb-list"
+				{...(!isEmpty(title) && { "aria-labelledby": id })}
+				{...props}
+			>
+				{items}
+			</ul>
+		</>
+	)
 }
 
-// Publish required component(s).
-export default List;
+export default List
