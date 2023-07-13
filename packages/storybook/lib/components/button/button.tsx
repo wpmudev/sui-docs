@@ -17,7 +17,7 @@ interface ButtonProps {
 	style: "primary" | "secondary"
 	color?: "white" | "black"
 	small?: boolean
-	className: string
+	className?: string
 }
 
 // All valid attributes in "a" tag
@@ -62,7 +62,7 @@ function Button({
 	small,
 	icon = "",
 	label,
-	className,
+	className = "",
 	...props
 }: { type: "button" | "link" } & ButtonProps) {
 	const btnClass = classnames({
