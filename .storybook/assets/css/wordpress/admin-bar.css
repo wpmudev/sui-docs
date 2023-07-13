@@ -125,6 +125,10 @@ html:lang(he-il) .rtl #wpadminbar * {
 	float: left;
 }
 
+.rtl #wpadminbar li {
+	float: right;
+}
+
 #wpadminbar .ab-empty-item {
 	outline: none;
 }

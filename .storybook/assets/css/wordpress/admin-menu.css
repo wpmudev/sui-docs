@@ -647,6 +647,12 @@ li#wp-admin-bar-menu-toggle {
 		margin-left: 36px;
 	}
 
+	.rtl.auto-fold #wpcontent,
+	.rtl.auto-fold #wpfooter {
+		margin-right: 36px;
+		margin-left: auto;
+	}
+
 	.auto-fold #adminmenuback,
 	.auto-fold #adminmenuwrap,
 	.auto-fold #adminmenu,
@@ -765,7 +771,12 @@ li#wp-admin-bar-menu-toggle {
 	.auto-fold #wpcontent {
 		position: relative;
 		margin-left: 0;
+		margin-right: 0;
 		padding-left: 10px;
+	}
+
+	.rtl.auto-fold #wpcontent {
+		margin-right: 0;
 	}
 
 	.sticky-menu #adminmenuwrap {
