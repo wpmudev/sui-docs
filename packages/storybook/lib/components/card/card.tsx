@@ -1,31 +1,52 @@
+/**
+ * External Dependencies
+ */
 import React from "react"
+import { linkTo } from "@storybook/addon-links"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import classnames from "classnames"
 
-// Import required components.
+/**
+ * Internal Dependencies
+ */
 import { Row, Col } from "../grid/grid"
 import Code from "../code/code"
 import Button from "../button/button"
-import { linkTo } from "@storybook/addon-links"
-
-// Import required styles.
+import { isEmpty } from "../../utils"
 import "./card.scss"
 
-// Build "card" component.
-const Card = {}
+/*********************************************
+ *
+ * Simple Card
+ *
+ *********************************************/
 
-// Create simple card.
-Card.Simple = ({ title, description, image, action, theme, ...args }) => {
-	let themeClass
-
-	switch (theme) {
-		case "light":
-		case "dark":
-			themeClass = " csb-card--" + theme
-			break
-
-		default:
-			// Do nothing.
-			break
+interface CardSimple {
+	title: string
+	description: string
+	image: {
+		src: string
+		src2x: string
+		width?: string
+		height?: string
+		alt?: string
 	}
+	action: string
+	theme: "dark" | "light"
+}
+
+const Simple: React.FunctionComponent<CardSimple> = ({
+	title,
+	description,
+	image,
+	action,
+	theme,
+	...props
+}) => {
+	const cardClass = classnames({
+		"csb-card csb-card--center": true,
+		[`csb-card--${theme}`]: !!theme,
+	})
 
 	const fig = Object.assign(
 		{
@@ -39,32 +60,27 @@ Card.Simple = ({ title, description, image, action, theme, ...args }) => {
 	)
 
 	return (
-		<div
-			className={`csb-card csb-card--center${
-				!isUndefined(themeClass) ? themeClass : ""
-			}`}
-			{...args}
-		>
-			{!isUndefined(fig.src) && (
+		<div className={cardClass} {...props}>
+			{!isEmpty(fig.src) && (
 				<div className="csb-card__image" aria-hidden="true">
 					<img
 						alt={fig.alt}
 						src={fig.src}
-						{...(!isUndefined(fig.src2x) && {
+						{...(!isEmpty(fig.src2x) && {
 							srcSet: `${fig.src} 1x, ${fig.src2x} 2x`,
 						})}
-						{...(!isUndefined(fig.width) && { width: `${fig.width}` })}
-						{...(!isUndefined(fig.height) && { height: `${fig.height}` })}
+						{...(!isEmpty(fig.width) && { width: `${fig.width}` })}
+						{...(!isEmpty(fig.height) && { height: `${fig.height}` })}
 					/>
 				</div>
 			)}
 
 			<div className="csb-card__info">
-				{!isUndefined(title) && <h3 className="csb-card__title">{title}</h3>}
-				{!isUndefined(description) && (
+				{!isEmpty(title) && <h3 className="csb-card__title">{title}</h3>}
+				{!isEmpty(description) && (
 					<p className="csb-card__description">{description}</p>
 				)}
-				{!isUndefined(action) && (
+				{!isEmpty(action) && (
 					<Button
 						type="button"
 						label="Learn More"
@@ -80,12 +96,35 @@ Card.Simple = ({ title, description, image, action, theme, ...args }) => {
 	)
 }
 
-// Create color's card.
-Card.Color = ({ content, theme, overWhite, ...args }) => {
-	let cardClass = "csb-card csb-card--color"
+/*********************************************
+ *
+ * Color Card
+ *
+ *********************************************/
+interface ColorProps {
+	theme: "light" | "dark"
+	overWhite?: boolean
+	content?: {
+		palette?: string
+		shade?: string
+		prefix?: string
+		hex?: string
+		variables?: boolean
+	}
+}
 
-	const hasTheme = !isUndefined(theme) ? true : false
-	const isOverWhite = !isUndefined(overWhite) ? true : false
+const Color: React.FunctionComponent<
+	ColorProps &
+		React.DetailedHTMLProps<
+			React.HTMLAttributes<HTMLDivElement>,
+			HTMLDivElement
+		>
+> = ({ content, theme, overWhite, ...props }) => {
+	const cardClass = classnames({
+		"csb-card csb-card--color": true,
+		[`csb-card--${theme}`]: !!theme,
+	})
+
 	const objContent = Object.assign(
 		{
 			palette: "",
@@ -98,31 +137,17 @@ Card.Color = ({ content, theme, overWhite, ...args }) => {
 	)
 
 	// Check if `objContent` variables are empty or null.
-	const hasPalette = !isUndefined(objContent.palette) ? true : false
-	const hasShade = !isUndefined(objContent.shade) ? true : false
-	const hasPrefix = !isUndefined(objContent.prefix) ? true : false
-	const hasHex = !isUndefined(objContent.hex) ? true : false
-	const hasVariables = !isUndefined(objContent.variables) ? true : false
-
-	// Check if `theme` property exists.
-	if (hasTheme) {
-		switch (theme) {
-			case "light":
-			case "dark":
-				cardClass += " csb-card--" + theme
-				break
-
-			default:
-				cardClass += " csb-card--light"
-				break
-		}
-	}
+	const hasPalette = !isEmpty(objContent.palette)
+	const hasShade = !isEmpty(objContent.shade)
+	const hasPrefix = !isEmpty(objContent.prefix)
+	const hasHex = !isEmpty(objContent.hex)
+	const hasVariables = objContent.variables
 
 	return (
 		<div
 			className={cardClass}
-			{...(isOverWhite && { style: { background: "#F8F8F8" } })}
-			{...args}
+			{...(overWhite && { style: { background: "#F8F8F8" } })}
+			{...props}
 		>
 			<div
 				className="csb-card__preview"
@@ -132,13 +157,12 @@ Card.Color = ({ content, theme, overWhite, ...args }) => {
 			>
 				{(hasShade || hasPrefix) && (
 					<h3>
-						{hasPrefix ? objContent.prefix : ""}
+						{objContent.prefix}
 						{hasShade && hasPrefix ? " / " : ""}
-						{hasShade ? objContent.shade : ""}
+						{objContent.shade}
 					</h3>
 				)}
 			</div>
-
 			<div className="csb-card__info">
 				{hasPalette && hasShade && hasVariables && (
 					<Row>
@@ -173,7 +197,7 @@ Card.Color = ({ content, theme, overWhite, ...args }) => {
 }
 
 // Convert HEX to RGB
-const getRgb = (value) => {
+const getRgb = (value: string) => {
 	const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(value)
 	return result
 		? {
@@ -181,19 +205,17 @@ const getRgb = (value) => {
 				g: parseInt(result[2], 16),
 				b: parseInt(result[3], 16),
 		  }
-		: null
-
-	// return color.r + ', ' + color.g + ', ' + color.b;
+		: { r: 0, g: 0, b: 0 }
 }
 
 // Convert RGB to HSL
-const getHsl = (value) => {
-	const limitDecimals = (number) => {
+const getHsl = (value: string) => {
+	const limitDecimals = (number: number) => {
 		return Math.round(number * 100) / 100
 	}
 
-	const roundValue = (number) => {
-		return parseInt(Math.floor(number * 100) / 100)
+	const roundValue = (number: number) => {
+		return Math.floor(number)
 	}
 
 	// Extract RGB values from HEX.
@@ -202,10 +224,13 @@ const getHsl = (value) => {
 	let blue = getRgb(value).b
 
 	// Convert the RGB values to the range 0-1.
-	;(red /= 255), (green /= 255), (blue /= 255)
-	;(red = limitDecimals(red)),
-		(green = limitDecimals(green)),
-		(blue = limitDecimals(blue))
+	red /= 255
+	green /= 255
+	blue /= 255
+
+	red = limitDecimals(red)
+	green = limitDecimals(green)
+	blue = limitDecimals(blue)
 
 	// Find the minimum and maximum values of R, G and B.
 	const min = Math.min(red, green, blue)
@@ -253,23 +278,7 @@ const getHsl = (value) => {
 	return `${roundValue(hue)}, ${roundValue(sat)}%, ${roundValue(lum)}%`
 }
 
-// Check if element is undefined.
-const isUndefined = (element, isNumber = false) => {
-	const isValid = "undefined" !== typeof element
-	const isNotEmpty = "" !== element
-
-	if (element && isValid && isNotEmpty) {
-		if (isNumber) {
-			if (Number.isNaN(element)) {
-				return false
-			}
-		} else {
-			return false
-		}
-	}
-
-	return true
-}
+const Card = { Simple, Color }
 
 // Publish required component(s).
 export default Card

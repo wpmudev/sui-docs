@@ -21,6 +21,9 @@ interface BannerProps {
 	image: {
 		src: string
 		src2x: string
+		width?: string
+		height?: string
+		alt?: string
 	}
 }
 
