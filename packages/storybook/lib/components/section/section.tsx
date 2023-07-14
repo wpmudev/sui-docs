@@ -1,117 +1,118 @@
-import React from "react";
+/**
+ *
+ * External Dependencies
+ *
+ */
+import React from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import classnames from "classnames"
 
-// Import required components.
-import Tag from "../tag/tag";
+/**
+ *
+ * Internal Dependencies
+ *
+ */
+import Tag from "../tag/tag"
+import { isEmpty } from "../../utils"
+import "./section.scss"
 
-// Import required styles.
-import "./section.scss";
-
-// Build "section" component.
-const Section = ({ title, border, container, contained, children, ...args }) => {
-    const hasTitle = !isUndefined( title ) ? true : false;
-    const hasBorder = !isUndefined( border ) ? border : false;
-    const hasContainer = !isUndefined( container ) ? container : false;
-    const isContained = !isUndefined( contained ) ? contained : false;
-
-    let sectionClass = 'csb-section';
-
-    if ( hasBorder ) {
-        sectionClass += ' csb-section--border';
-    }
-
-    let getTitle = (
-        <h2 className="csb-section__title">{ title }</h2>
-    );
-
-    if ( hasTitle ) {
-        if ( 'object' === typeof title ) {
-            if ( Array.isArray( title ) ) {
-                throw new Error(
-                    `\nOnly object and string is allowed in title property.`
-                );
-            } else {
-                const objTitle = Object.assign(
-                    {
-                        content: '',
-                        date: '',
-                        tag: '',
-                        small: false,
-                    },
-                    title
-                );
-
-                getTitle = (
-                    <h2 className={`csb-section__title${ true === objTitle.small ? ' csb-section__title--sm' : '' }${ ( !isUndefined( objTitle.date ) || !isUndefined( objTitle.tag ) ) ? ' csb-section__title-tag' : '' }`}>
-                        { objTitle.content }
-                        { !isUndefined( objTitle.date ) && <Tag color="blue">{ objTitle.date }</Tag> }
-                        { !isUndefined( objTitle.tag ) && (
-                            <Tag color="yellow">{ objTitle.tag }</Tag>
-                        )}
-                    </h2>
-                );
-
-            }
-        }
-    }
-
-    if ( hasContainer ) {
-        return (
-            <div className={ sectionClass } { ...args }>
-                <div className="csb-section__inner">
-                    { isContained && (
-                        <div className="csb-section__contained">
-                            { hasTitle && getTitle }
-                            { children }
-                        </div>
-                    )}
-
-                    { !isContained && (
-                        <>
-                            { hasTitle && getTitle }
-                            { children }
-                        </>
-                    )}
-                </div>
-            </div>
-        );
-    }
-
-    return (
-        <div className={ sectionClass } { ...args }>
-            { isContained && (
-                <div className="csb-section__contained">
-                    { hasTitle && getTitle }
-                    { children }
-                </div>
-            )}
-
-            { !isContained && (
-                <>
-                    { hasTitle && getTitle }
-                    { children }
-                </>
-            )}
-        </div>
-    );
-};
-
-// Check if element is undefined.
-const isUndefined = (element, isNumber = false) => {
-    const isValid = 'undefined' !== typeof element;
-    const isNotEmpty = '' !== element;
-
-    if ( element && isValid && isNotEmpty ) {
-        if ( isNumber ) {
-            if ( Number.isNaN(element) ) {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-
-    return true;
+interface SectionProps {
+	title:
+		| string
+		| {
+				content: string
+				date?: string
+				tag?: string
+				small?: boolean
+		  }
+	border?: boolean
+	container?: boolean
+	contained?: boolean
+	children: React.ReactNode
 }
 
-// Publish required component(s).
-export default Section;
+const Section: React.FunctionComponent<
+	SectionProps &
+		React.DetailedHTMLProps<
+			React.HTMLAttributes<HTMLDivElement>,
+			HTMLDivElement
+		>
+> = ({ title, border, container, contained, children, ...props }) => {
+	const sectionClass = classnames({
+		"csb-section": true,
+		"csb-section--border": !!border,
+	})
+
+	const getTitle = () => {
+		if ("object" === typeof title) {
+			const objTitle = Object.assign(
+				{
+					content: "",
+					date: "",
+					tag: "",
+					small: false,
+				},
+				title as object,
+			)
+
+			const titleClass = classnames({
+				"csb-section__title": true,
+				"csb-section__title--sm": objTitle.small,
+				"csb-section__title-tag":
+					!isEmpty(objTitle.date) || !isEmpty(objTitle.tag),
+			})
+
+			return (
+				<h2 className={titleClass}>
+					{objTitle.content}
+					{!isEmpty(objTitle.date) && <Tag color="blue">{objTitle.date}</Tag>}
+					{!isEmpty(objTitle.tag) && <Tag color="yellow">{objTitle.tag}</Tag>}
+				</h2>
+			)
+		}
+
+		return <h2 className="csb-section__title">{title}</h2>
+	}
+
+	if (!!container) {
+		return (
+			<div className={sectionClass} {...props}>
+				<div className="csb-section__inner">
+					{contained && (
+						<div className="csb-section__contained">
+							{!!title && getTitle()}
+							{children}
+						</div>
+					)}
+
+					{!contained && (
+						<>
+							{!!title && getTitle()}
+							{children}
+						</>
+					)}
+				</div>
+			</div>
+		)
+	}
+
+	return (
+		<div className={sectionClass} {...props}>
+			{contained && (
+				<div className="csb-section__contained">
+					{!!title && getTitle()}
+					{children}
+				</div>
+			)}
+
+			{!contained && (
+				<>
+					{!!title && getTitle()}
+					{children}
+				</>
+			)}
+		</div>
+	)
+}
+
+export default Section
