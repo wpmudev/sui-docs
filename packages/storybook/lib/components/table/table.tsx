@@ -1,66 +1,64 @@
-import React from "react";
+/**
+ *
+ * External dependencies
+ *
+ */
+import React from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import classnames from "classnames"
 
-// Import required styles.
-import "./table.scss";
+/**
+ *
+ * Internal dependencies
+ *
+ */
+import "./table.scss"
 
-// Build "table" component.
-const Table = ({ headers = [], content = [], border }) => {
-	const heads = headers.map( ( col, index ) => {
-		return (
-			<th key={ index }>{ col }</th>
-		);
-	});
+interface ColumnObject {
+	columns: {
+		[key: string]: React.ReactNode
+	}
+}
 
-	const rows = content.map( ( row, index ) => {
-		const columns = Object.keys( row.columns ).map( ( col, idxCol ) => {
-			return (
-				<td key={`${ index }-${ idxCol }`}>
-					{ row.columns[col] }
-				</td>
-			);
-		});
+interface TableProps {
+	headers: string[]
+	content: ColumnObject[]
+	border?: boolean
+}
 
-		return (
-			<tr key={ index }>
-				{ columns }
-			</tr>
-		);
-	});
+const Table: React.FunctionComponent<TableProps> = ({
+	headers = [],
+	content = [],
+	border = false,
+}) => {
+	const heads = headers.map((col, index) => {
+		return <th key={index}>{col}</th>
+	})
 
-	const hasBorder = !isUndefined( border, true ) ? border : false;
+	const rows = content.map((row, index) => {
+		const columns = Object.keys(row.columns).map((col, idxCol) => {
+			return <td key={`${index}-${idxCol}`}>{row.columns[col]}</td>
+		})
+
+		return <tr key={index}>{columns}</tr>
+	})
+
+	const tableClasses = classnames({
+		"csb-table": true,
+		"csb-table--borders": border,
+	})
 
 	return (
-		<table className={`csb-table${ hasBorder ? ' csb-table--borders' : '' }`}>
-			{ heads.length > 0 && (
+		<table className={tableClasses}>
+			{heads.length > 0 && (
 				<thead>
-					<tr>{ heads }</tr>
+					<tr>{heads}</tr>
 				</thead>
 			)}
 
-			<tbody>
-				{ rows }
-			</tbody>
+			<tbody>{rows}</tbody>
 		</table>
-	);
+	)
 }
 
-// Check if element is undefined.
-const isUndefined = (element, isBool = false) => {
-	const isValid = 'undefined' !== typeof element;
-	const isNotEmpty = '' !== element;
-
-	if ( element && isValid && isNotEmpty ) {
-		if ( isBool ) {
-			if ( 'boolean' === typeof element ) {
-				return false;
-			}
-		} else {
-			return false;
-		}
-	}
-
-	return true;
-}
-
-// Publish required component(s).
-export default Table;
+export default Table
