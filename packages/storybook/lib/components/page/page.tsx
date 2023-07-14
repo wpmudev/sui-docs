@@ -1,118 +1,174 @@
-import React from "react";
+/**
+ *
+ * External Dependencies
+ *
+ */
+import React from "react"
 
-// Import required components.
-import Banner from "../banner/banner";
-import Header from "../header/header";
-import Body from "../body/body";
-import Tabs from "../tabs/tabs";
-import Section from "../section/section";
-import Footer from "../footer/footer";
+/**
+ *
+ * Internal Dependencies
+ *
+ */
+import Banner from "../banner/banner"
+import Header from "../header/header"
+import Body from "../body/body"
+import Tabs from "../tabs/tabs"
+import Section from "../section/section"
+import Footer from "../footer/footer"
+import "./page.scss"
 
-// Import required styles.
-import "./page.scss";
-
-// Build "page" component.
-const Page = {};
-
-Page.Home = ({ title, subtitle, action, image, children, ...args }) => {
-    return (
-        <div className="csb-page" { ...args }>
-            <Banner
-                title={ title }
-                subtitle={ subtitle }
-                action={ action }
-                image={ image }
-            />
-
-            <Body>
-                <Section container={ true }>
-                    { children }
-                </Section>
-            </Body>
-
-            <SetFooter />
-        </div>
-    );
+/*************************************
+ *
+ * Home Component
+ *
+ *************************************/
+interface HomeProps {
+	title: string
+	subtitle: React.ReactNode
+	action: {
+		link: string
+		label: string
+	}
+	image: {
+		src: string
+		src2x: string
+		width?: string
+		height?: string
+		alt?: string
+	}
+	children: React.ReactNode
 }
 
-Page.Simple = ({ title, subtitle, status, children, ...args }) => {
-    const hasSubtitle = !isUndefined(subtitle) ? true : false;
+const Home: React.FunctionComponent<
+	HomeProps &
+		React.DetailedHTMLProps<
+			React.HTMLAttributes<HTMLDivElement>,
+			HTMLDivElement
+		>
+> = ({ title, subtitle, action, image, children, ...props }) => {
+	return (
+		<div className="csb-page" {...props}>
+			<Banner title={title} subtitle={subtitle} action={action} image={image} />
 
-    return (
-        <div className="csb-page" { ...args }>
-            <Header title={ title } border={ true } status={ status } />
+			<Body>
+				<Section container={true}>{children}</Section>
+			</Body>
 
-            <Body>
-                { hasSubtitle && (
-                    <Section contained={ true }>
-                        <p className="csb-page__title">{ subtitle }</p>
-                    </Section>
-                )}
-
-                { children }
-            </Body>
-
-            <SetFooter />
-        </div>
-    );
+			<PageFooter />
+		</div>
+	)
 }
 
-Page.Tabs = ({ title, subtitle, status, children, ...args }) => {
-    return (
-        <div className="csb-page" { ...args }>
-            <Header title={ title } border={ false } status={ status } />
-
-            <Body>
-                <Tabs { ... ( !isUndefined( subtitle ) && { title: subtitle } ) }>
-                    { children }
-                </Tabs>
-            </Body>
-
-            <SetFooter />
-        </div>
-    );
+/*************************************
+ *
+ * Simple Component
+ *
+ *************************************/
+interface SimpleProps {
+	title: string
+	subtitle?: React.ReactNode
+	status?: "planned" | "draft" | "ready" | "dead"
+	children: React.ReactNode
 }
 
-Page.Canvas = ({ children, ...args }) => {
-    return (
-        <div
-            className="csb-page"
-            style={{ background: 'transparent' }}
-            { ...args }>
-            <Body>
-                { children }
-            </Body>
-        </div>
-    );
+const Simple: React.FunctionComponent<
+	SimpleProps &
+		React.DetailedHTMLProps<
+			React.HTMLAttributes<HTMLDivElement>,
+			HTMLDivElement
+		>
+> = ({ title, subtitle, status, children, ...props }) => {
+	return (
+		<div className="csb-page" {...props}>
+			<Header title={title} border={true} status={status} />
+
+			<Body>
+				{!!subtitle && (
+					<Section contained={true}>
+						<p className="csb-page__title">{subtitle}</p>
+					</Section>
+				)}
+
+				{children}
+			</Body>
+
+			<PageFooter />
+		</div>
+	)
 }
 
-// Build global footer.
-const SetFooter = () => {
-    return (
-        <Footer>
-            <div label="Terms of Use" kind="sui-terms--page" />
-            <div label="Privacy Policy" link="https://incsub.com/privacy-policy/" />
-        </Footer>
-    );
+/*************************************
+ *
+ * Tabs Component
+ *
+ *************************************/
+interface PageTabsProps {
+	title: string
+	subtitle?: React.ReactNode
+	status?: "planned" | "draft" | "ready" | "dead"
+	children: React.ReactNode
 }
 
-// Check if element is undefined.
-const isUndefined = (element, isNumber = false) => {
-    const isValid = 'undefined' !== typeof element;
-    const isNotEmpty = '' !== element;
+const PageTabs: React.FunctionComponent<
+	PageTabsProps &
+		React.DetailedHTMLProps<
+			React.HTMLAttributes<HTMLDivElement>,
+			HTMLDivElement
+		>
+> = ({ title, subtitle, status, children, ...args }) => {
+	return (
+		<div className="csb-page" {...args}>
+			<Header title={title} border={false} status={status} />
 
-    if ( element && isValid && isNotEmpty ) {
-        if ( isNumber ) {
-            if ( Number.isNaN(element) ) {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
+			<Body>
+				<Tabs {...(!!subtitle && { title: subtitle })}>{children}</Tabs>
+			</Body>
 
-    return true;
+			<PageFooter />
+		</div>
+	)
 }
 
-// Publish required component(s).
-export default Page;
+/*************************************
+ *
+ * Canvas Component
+ *
+ *************************************/
+interface CanvasProps {
+	children: React.ReactNode
+}
+const Canvas: React.FunctionComponent<
+	CanvasProps &
+		React.DetailedHTMLProps<
+			React.HTMLAttributes<HTMLDivElement>,
+			HTMLDivElement
+		>
+> = ({ children, ...args }) => {
+	return (
+		<div className="csb-page" style={{ background: "transparent" }} {...args}>
+			<Body>{children}</Body>
+		</div>
+	)
+}
+
+/*************************************
+ *
+ * PageFooter Component
+ *
+ *************************************/
+const PageFooter: React.FunctionComponent = () => {
+	return (
+		<Footer>
+			<div data-label="Terms of Use" data-kind="sui-terms--page" />
+			<div
+				data-label="Privacy Policy"
+				data-link="https://incsub.com/privacy-policy/"
+			/>
+		</Footer>
+	)
+}
+
+const Page = { Home, Simple, Tabs: PageTabs, Canvas }
+
+export default Page

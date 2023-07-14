@@ -30,22 +30,30 @@ const Footer: React.FunctionComponent<
 	const menuItems = Children.map(children, (child, index) => {
 		return (
 			<li key={index} className="csb-footer__menu-item">
-				{isUndefined(child?.props.link) && isUndefined(child?.props.kind) && (
-					<>{child?.props?.label}</>
-				)}
+				{isUndefined(child?.props["data-link"]) &&
+					isUndefined(child?.props["data-kind"]) && (
+						<>{child?.props["data-label"]}</>
+					)}
 
-				{(!isUndefined(child?.props.link) ||
-					!isUndefined(child?.props.kind)) && (
+				{(!isUndefined(child?.props["data-link"]) ||
+					!isUndefined(child?.props["data-kind"])) && (
 					<>
-						{!isUndefined(child?.props.link) && (
-							<a href={child?.props.link} target="_blank" rel="noreferrer">
-								{child?.props.label}
+						{!isUndefined(child?.props["data-link"]) && (
+							<a
+								href={child?.props["data-link"]}
+								target="_blank"
+								rel="noreferrer"
+							>
+								{child?.props["data-label"]}
 							</a>
 						)}
 
-						{!isUndefined(child?.props.kind) && (
-							<LinkTo kind={child?.props.kind} story={child?.props.story}>
-								{child?.props.label}
+						{!isUndefined(child?.props["data-kind"]) && (
+							<LinkTo
+								kind={child?.props["data-kind"]}
+								story={child?.props["data-story"]}
+							>
+								{child?.props["data-label"]}
 							</LinkTo>
 						)}
 					</>
