@@ -31,7 +31,7 @@ const Header: React.FunctionComponent<
 > = ({ title, border, status, ...props }) => {
 	let statusName: string
 	let statusDesc: string
-	let statusColor: string
+	let statusColor: "" | "yellow" | "blue" | "red" | "green"
 
 	switch (status) {
 		case "planned":
