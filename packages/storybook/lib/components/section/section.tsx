@@ -17,7 +17,7 @@ import { isEmpty } from "../../utils"
 import "./section.scss"
 
 interface SectionProps {
-	title:
+	title?:
 		| string
 		| {
 				content: string
@@ -37,7 +37,7 @@ const Section: React.FunctionComponent<
 			React.HTMLAttributes<HTMLDivElement>,
 			HTMLDivElement
 		>
-> = ({ title, border, container, contained, children, ...props }) => {
+> = ({ title = "", border, container, contained, children, ...props }) => {
 	const sectionClass = classnames({
 		"csb-section": true,
 		"csb-section--border": !!border,

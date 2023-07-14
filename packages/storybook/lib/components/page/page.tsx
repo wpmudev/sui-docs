@@ -107,7 +107,7 @@ interface PageTabsProps {
 	title: string
 	subtitle?: React.ReactNode
 	status?: "planned" | "draft" | "ready" | "dead"
-	children: React.ReactNode
+	children: JSX.Element[]
 }
 
 const PageTabs: React.FunctionComponent<
@@ -122,7 +122,7 @@ const PageTabs: React.FunctionComponent<
 			<Header title={title} border={false} status={status} />
 
 			<Body>
-				<Tabs {...(!!subtitle && { title: subtitle })}>{children}</Tabs>
+				<Tabs label={subtitle}>{children}</Tabs>
 			</Body>
 
 			<PageFooter />
