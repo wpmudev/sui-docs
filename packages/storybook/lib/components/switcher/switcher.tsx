@@ -1,51 +1,64 @@
-import React, { Children, useState, useEffect } from "react";
+/**
+ *
+ * External Components
+ *
+ */
+import React, { Children, useState, useEffect } from "react"
 
-// Import required components.
-import Select from "../select/select";
+/**
+ *
+ * Internal Components
+ *
+ */
+import Select from "../select/select"
 
-// Build "switcher" component.
-const Switcher = ({ children }) => {
-    const [ selected, setSelected ] = useState( 0 );
+interface SwitcherProps {
+	children: JSX.Element[]
+}
 
-    const options = Children.map( children, ( option, index ) => {
-        return (
-            <div
-                key={ index }
-                value={ option.props.value }
-                label={ option.props.label } />
-        );
-    });
+const Switcher: React.FunctionComponent<SwitcherProps> = ({ children }) => {
+	const [selected, setSelected] = useState<string | null>()
+	const [options, setOptions] = useState<React.ReactElement[] | null>()
+	const [content, setContent] = useState<React.ReactElement | null>()
 
-    const contents = Children.map( children, ( content, index ) => {
-        useEffect( () => {
-            if ( 0 === index ) {
-                setSelected( content.props.value );
-            }
-        }, [] );
+	useEffect(() => {
+		const optionsElements: React.ReactElement[] = []
 
-        // Hide content based on selected option.
-        const hideContent = selected !== content.props.value && { hidden: 'hidden' };
+		Children.map(children, (element, index) => {
+			// Initial Selected Value
+			if (0 === index && !selected) {
+				setSelected(element.props.value)
+			}
 
-        return (
-            <div
-                key={ index }
-                className="csb-colors-switcher__content"
-                { ... hideContent }>
-                { content.props.children }
-            </div>
-        );
-    });
+			// Set displayed options
+			optionsElements.push(
+				<option
+					key={index}
+					value={element.props.value}
+					label={element.props.label}
+				/>,
+			)
+			setOptions(optionsElements)
 
-    return (
-        <div className="csb-colos-switcher">
-            <Select onChange={ e => setSelected( e.target.value ) }>
-                { options }
-            </Select>
+			// Set displayed content
+			if (selected === element.props.value) {
+				setContent(
+					<div key={index} className="csb-colors-switcher__content">
+						{element.props.children}
+					</div>,
+				)
+			}
+		})
+	}, [children, selected])
 
-            { contents }
-        </div>
-    );
-};
+	return (
+		<div className="csb-colos-switcher">
+			{options && (
+				<Select onChange={(e) => setSelected(e.target.value)}>{options}</Select>
+			)}
+			{content && content}
+		</div>
+	)
+}
 
-// Publish required component(s).
-export default Switcher;
+export default Switcher
