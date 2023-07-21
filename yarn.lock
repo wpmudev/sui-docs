@@ -4720,184 +4720,210 @@
   version "0.0.0"
   resolved "file:packages/documentation"
 
-"@wpmudev/react-alertbanner@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-alertbanner":
+"@wpmudev/react-alertbanner@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/alertbanner":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-alertbanner"
+  resolved "file:packages/sui-react/packages/alertbanner"
   dependencies:
     "@wpmudev/react-button" "^0.0.0"
-    "@wpmudev/react-icon-button" "^0.0.0"
 
-"@wpmudev/react-alertdialog@^0.0.0", "@wpmudev/react-alertdialog@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-alertdialog":
+"@wpmudev/react-alertdialog@^0.0.0", "@wpmudev/react-alertdialog@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/alertdialog":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-alertdialog"
+  resolved "file:packages/sui-react/packages/alertdialog"
 
-"@wpmudev/react-announcement@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-announcement":
+"@wpmudev/react-announcement@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/announcement":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-announcement"
+  resolved "file:packages/sui-react/packages/announcement"
   dependencies:
-    "@wpmudev/react-icon-button" "^0.0.0"
+    "@wpmudev/react-button" "^0.0.0"
 
-"@wpmudev/react-avatar@^0.0.0", "@wpmudev/react-avatar@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-avatar":
+"@wpmudev/react-avatar@^0.0.0", "@wpmudev/react-avatar@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/avatar":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-avatar"
+  resolved "file:packages/sui-react/packages/avatar"
 
-"@wpmudev/react-box@^0.0.0", "@wpmudev/react-box@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-box":
+"@wpmudev/react-box@^0.0.0", "@wpmudev/react-box@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/box":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-box"
+  resolved "file:packages/sui-react/packages/box"
 
 "@wpmudev/react-button-icon@^1.0.0":
   version "1.1.2"
   resolved "https://registry.npmjs.org/@wpmudev/react-button-icon/-/react-button-icon-1.1.2.tgz"
   integrity sha512-yh54sYxzT0Y7pOxYvUiiFloaJF+ZNXrWAjH1EQNRM/x9Bo+yPb+cHh2/BgxaJVxm3i6rpmS9UmbvbFGZEVMWcg==
 
-"@wpmudev/react-button@^0.0.0", "@wpmudev/react-button@^1.0.0", "@wpmudev/react-button@^1.1.2", "@wpmudev/react-button@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-button":
+"@wpmudev/react-button@^0.0.0", "@wpmudev/react-button@^1.0.0", "@wpmudev/react-button@^1.1.2", "@wpmudev/react-button@0.0.0", "@wpmudev/react-button@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/button":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-button"
+  resolved "file:packages/sui-react/packages/button"
 
-"@wpmudev/react-checkbox@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-checkbox":
+"@wpmudev/react-checkbox@^0.0.0", "@wpmudev/react-checkbox@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/checkbox":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-checkbox"
+  resolved "file:packages/sui-react/packages/checkbox"
 
-"@wpmudev/react-code-snippet@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-code-snippet":
+"@wpmudev/react-code-snippet@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/code-snippet":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-code-snippet"
+  resolved "file:packages/sui-react/packages/code-snippet"
 
-"@wpmudev/react-dropdown@^0.0.0", "@wpmudev/react-dropdown@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-dropdown":
+"@wpmudev/react-dropdown@^0.0.0", "@wpmudev/react-dropdown@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/dropdown":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-dropdown"
+  resolved "file:packages/sui-react/packages/dropdown"
   dependencies:
     "@wpmudev/react-button" "^0.0.0"
-    "@wpmudev/react-icon-button" "^0.0.0"
 
-"@wpmudev/react-field-list@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-field-list":
+"@wpmudev/react-field-list@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/field-list":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-field-list"
+  resolved "file:packages/sui-react/packages/field-list"
   dependencies:
     "@wpmudev/react-toggle" "^0.0.0"
     "@wpmudev/react-utils" "^1.0.0"
 
-"@wpmudev/react-field-password@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-field-password":
+"@wpmudev/react-field-password@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/field-password":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-field-password"
+  resolved "file:packages/sui-react/packages/field-password"
   dependencies:
     "@wpmudev/react-button" "^0.0.0"
     "@wpmudev/react-form-field" "^0.0.0"
-    "@wpmudev/react-icon-button" "^0.0.0"
     "@wpmudev/react-input" "^0.0.0"
 
-"@wpmudev/react-field-text@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-field-text":
+"@wpmudev/react-field-text@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/field-text":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-field-text"
+  resolved "file:packages/sui-react/packages/field-text"
   dependencies:
     "@wpmudev/react-form-field" "^0.0.0"
     "@wpmudev/react-input" "^0.0.0"
 
-"@wpmudev/react-footer@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-footer":
+"@wpmudev/react-footer@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/footer":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-footer"
+  resolved "file:packages/sui-react/packages/footer"
   dependencies:
     "@wpmudev/react-menu" "^0.0.0"
 
-"@wpmudev/react-form-field@^0.0.0", "@wpmudev/react-form-field@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-form-field":
+"@wpmudev/react-form-field@^0.0.0", "@wpmudev/react-form-field@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/form-field":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-form-field"
+  resolved "file:packages/sui-react/packages/form-field"
+  dependencies:
+    classnames "^2.3.2"
 
-"@wpmudev/react-grid@^0.0.0", "@wpmudev/react-grid@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-grid":
+"@wpmudev/react-grid@^0.0.0", "@wpmudev/react-grid@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/grid":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-grid"
+  resolved "file:packages/sui-react/packages/grid"
 
-"@wpmudev/react-hooks@^1.0.0", "@wpmudev/react-hooks@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-hooks":
+"@wpmudev/react-hooks@^1.0.0", "@wpmudev/react-hooks@1.0.0", "@wpmudev/react-hooks@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/hooks":
   version "1.0.0"
-  resolved "file:packages/sui-react/packages/react-hooks"
+  resolved "file:packages/sui-react/packages/hooks"
 
-"@wpmudev/react-icon-button@^0.0.0", "@wpmudev/react-icon-button@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-icon-button":
+"@wpmudev/react-icon@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/icon":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-icon-button"
+  resolved "file:packages/sui-react/packages/icon"
 
-"@wpmudev/react-input@^0.0.0", "@wpmudev/react-input@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-input":
+"@wpmudev/react-input@^0.0.0", "@wpmudev/react-input@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/input":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-input"
+  resolved "file:packages/sui-react/packages/input"
 
-"@wpmudev/react-menu@^0.0.0", "@wpmudev/react-menu@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-menu":
+"@wpmudev/react-integration@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-integration":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-menu"
+  resolved "file:packages/sui-react/packages/react-integration"
+  dependencies:
+    "@wpmudev/react-tag" "^0.0.0"
+    "@wpmudev/react-toggle" "^1.0.0"
+    "@wpmudev/react-tooltip" "^0.0.0"
+    "@wpmudev/react-utils" "^1.0.0"
+
+"@wpmudev/react-menu@^0.0.0", "@wpmudev/react-menu@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/menu":
+  version "0.0.0"
+  resolved "file:packages/sui-react/packages/menu"
   dependencies:
     "@wpmudev/react-utils" "^1.0.0"
 
-"@wpmudev/react-modal@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-modal":
+"@wpmudev/react-modal@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/modal":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-modal"
+  resolved "file:packages/sui-react/packages/modal"
   dependencies:
     "@wpmudev/react-alertdialog" "^0.0.0"
     "@wpmudev/react-box" "^0.0.0"
     "@wpmudev/react-button" "^0.0.0"
-    "@wpmudev/react-icon-button" "^0.0.0"
     "@wpmudev/react-utils" "^1.0.0"
 
-"@wpmudev/react-notification@^0.0.0", "@wpmudev/react-notification@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-notification":
+"@wpmudev/react-notification@^0.0.0", "@wpmudev/react-notification@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/notification":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-notification"
+  resolved "file:packages/sui-react/packages/notification"
   dependencies:
     "@wpmudev/react-button" "^0.0.0"
-    "@wpmudev/react-icon-button" "^0.0.0"
 
-"@wpmudev/react-pagination@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-pagination":
+"@wpmudev/react-pagination@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/pagination":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-pagination"
+  resolved "file:packages/sui-react/packages/pagination"
 
-"@wpmudev/react-progress-bar@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-progress-bar":
+"@wpmudev/react-progress-bar@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/progress-bar":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-progress-bar"
+  resolved "file:packages/sui-react/packages/progress-bar"
   dependencies:
     "@wpmudev/react-button" "^0.0.0"
     "@wpmudev/react-utils" "^1.0.0"
 
-"@wpmudev/react-radio@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-radio":
+"@wpmudev/react-radio@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/radio":
   version "1.0.0"
-  resolved "file:packages/sui-react/packages/react-radio"
+  resolved "file:packages/sui-react/packages/radio"
 
-"@wpmudev/react-recipient@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-recipient":
+"@wpmudev/react-recipient@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/recipient":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-recipient"
+  resolved "file:packages/sui-react/packages/recipient"
   dependencies:
     "@wpmudev/react-avatar" "^0.0.0"
     "@wpmudev/react-button-icon" "^1.0.0"
     "@wpmudev/react-utils" "^1.0.0"
 
-"@wpmudev/react-segmented-button@^0.0.0", "@wpmudev/react-segmented-button@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-segmented-button":
+"@wpmudev/react-score@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-score":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-segmented-button"
+  resolved "file:packages/sui-react/packages/react-score"
+
+"@wpmudev/react-segmented-button@^0.0.0", "@wpmudev/react-segmented-button@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/segmented-button":
+  version "0.0.0"
+  resolved "file:packages/sui-react/packages/segmented-button"
   dependencies:
     "@wpmudev/react-button" "^0.0.0"
-    "@wpmudev/react-icon-button" "^0.0.0"
 
-"@wpmudev/react-segmented-group@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-segmented-group":
+"@wpmudev/react-segmented-group@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/segmented-group":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-segmented-group"
+  resolved "file:packages/sui-react/packages/segmented-group"
   dependencies:
     "@wpmudev/react-segmented-button" "^0.0.0"
 
-"@wpmudev/react-table@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-table":
+"@wpmudev/react-select@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-select":
+  version "0.0.0"
+  resolved "file:packages/sui-react/packages/react-select"
+
+"@wpmudev/react-table@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/table":
   version "1.0.0"
-  resolved "file:packages/sui-react/packages/react-table"
+  resolved "file:packages/sui-react/packages/table"
 
-"@wpmudev/react-tag@^0.0.0", "@wpmudev/react-tag@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-tag":
+"@wpmudev/react-tag@^0.0.0", "@wpmudev/react-tag@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/tag":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-tag"
+  resolved "file:packages/sui-react/packages/tag"
 
-"@wpmudev/react-toggle@^0.0.0", "@wpmudev/react-toggle@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-toggle":
+"@wpmudev/react-textarea@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-textarea":
   version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-toggle"
+  resolved "file:packages/sui-react/packages/react-textarea"
+
+"@wpmudev/react-toggle@^0.0.0", "@wpmudev/react-toggle@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/toggle":
+  version "0.0.0"
+  resolved "file:packages/sui-react/packages/toggle"
   dependencies:
     "@wpmudev/react-utils" "^1.0.0"
 
-"@wpmudev/react-tooltip@^0.0.0", "@wpmudev/react-tooltip@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-tooltip":
-  version "0.0.0"
-  resolved "file:packages/sui-react/packages/react-tooltip"
-
-"@wpmudev/react-utils@^1.0.0", "@wpmudev/react-utils@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/react-utils":
+"@wpmudev/react-toggle@^1.0.0":
   version "1.0.0"
-  resolved "file:packages/sui-react/packages/react-utils"
+  resolved "https://registry.npmjs.org/@wpmudev/react-toggle/-/react-toggle-1.0.0.tgz"
+  integrity sha512-e6mhFFPN+vZOKimI3BaNLXAd08kydZTvFi/EnJ9FewAXGbJbdJl90HTkhPTsE3GXPDEgCbAkcqDmkfFNhnpGFw==
+
+"@wpmudev/react-tooltip@^0.0.0", "@wpmudev/react-tooltip@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/tooltip":
+  version "0.0.0"
+  resolved "file:packages/sui-react/packages/tooltip"
+  dependencies:
+    "@wpmudev/react-button" "0.0.0"
+    "@wpmudev/react-hooks" "1.0.0"
+    "@wpmudev/react-utils" "^1.0.0"
+
+"@wpmudev/react-utils@^1.0.0", "@wpmudev/react-utils@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/utils":
+  version "1.0.0"
+  resolved "file:packages/sui-react/packages/utils"
 
 "@wpmudev/simple-elements@file:/Users/govind/Development/SUI Development/sui-docs/packages/sui-react/packages/simple-elements":
   version "0.0.0"
@@ -4905,7 +4931,6 @@
   dependencies:
     "@wpmudev/react-avatar" "^0.0.0"
     "@wpmudev/react-button" "^0.0.0"
-    "@wpmudev/react-icon-button" "^0.0.0"
     "@wpmudev/react-tag" "^0.0.0"
 
 "@wpmudev/storybook@^0.0.0", "@wpmudev/storybook@file:/Users/govind/Development/SUI Development/sui-docs/packages/storybook":
@@ -14037,6 +14062,11 @@ raw-body@2.5.1:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+react-autocomplete-hint@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/react-autocomplete-hint/-/react-autocomplete-hint-2.0.0.tgz"
+  integrity sha512-cwj+h503xosFvd7y/tVHAo2bMj033v9WzVKbsPKc/SfoNsLD75/5nhBoIxbZOCP2KiPhgHHalb77Z/4pu6uwTQ==
+
 react-colorful@^5.1.2:
   version "5.6.1"
   resolved "https://registry.npmjs.org/react-colorful/-/react-colorful-5.6.1.tgz"
@@ -14125,7 +14155,7 @@ react-resize-detector@^7.1.2:
   dependencies:
     lodash "^4.17.21"
 
-"react@^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.4 || ^17.0.0 || ^18.0.0", react@^18.2.0, "react@>= 0.14.0", react@>=16, react@>=16.8.0, "react@16.8.0 - 18":
+"react@^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.4 || ^17.0.0 || ^18.0.0", react@^18.2.0, "react@>= 0.14.0", react@>=16, react@>=16.0.0, react@>=16.8.0, "react@16.8.0 - 18":
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
