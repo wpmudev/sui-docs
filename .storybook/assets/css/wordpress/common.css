@@ -409,6 +409,16 @@ ol.ol-decimal > li {
 	margin: 0 0 0.5em;
 }
 
+/* High contrast mode */
+.sui-theme--dark h1,
+.sui-theme--dark h2,
+.sui-theme--dark h3,
+.sui-theme--dark h4,
+.sui-theme--dark h5,
+.sui-theme--dark p {
+	color: #000;
+}
+
 /* rtl:ignore */
 .ltr {
 	direction: ltr;
