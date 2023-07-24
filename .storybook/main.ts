@@ -13,28 +13,30 @@ module.exports = {
 		"@storybook/addon-a11y",
 	],
 	webpackFinal: async (config, { configType }) => {
-		// Add rule for TypeScript files
-		config.module.rules.push({
-			test: /\.(ts|tsx)$/,
-			use: [
-				{
-					loader: require.resolve("babel-loader"),
-					options: {
-						presets: [
-							require.resolve("@babel/preset-react"),
-							require.resolve("@babel/preset-typescript"),
-						],
-					},
-				},
-			],
-			include: path.resolve(__dirname, "../"),
-		})
 		// Add SASS support.
 		config.module.rules.push({
 			test: /\.scss$/,
 			use: ["style-loader", "css-loader", "sass-loader"],
 			include: path.resolve(__dirname, "../"),
 		})
+
+		// load typescript files
+		config.module.rules.push({
+			test: /\.(ts|tsx)?$/,
+			exclude: /node_modules/,
+			use: [
+				{
+					loader: "ts-loader",
+					options: {
+						transpileOnly: true,
+					},
+				},
+			],
+		})
+
+		// add typescript extensions
+		config.resolve.extensions.push(".ts", ".tsx")
+
 		return config
 	},
 	framework: {

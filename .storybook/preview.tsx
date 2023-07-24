@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import "@storybook/addon-console"
 
 import "./assets/js/body-class"
@@ -6,8 +6,8 @@ import "./assets/js/html-class"
 
 import "./assets/css/wordpress.css"
 
-// import "../packages/sui-css/src/scss/sui-css.scss"
-// import "../packages/sui-icons/src/scss/sui-icons.scss"
+import "../packages/sui-css/src/scss/sui-css.scss"
+import "../packages/sui-icons/src/scss/sui-icons.scss"
 
 /**
  * Get devices samples from:
@@ -56,6 +56,32 @@ const breakpoints = {
 	},
 }
 
+export const globalTypes = {
+	theme: {
+		name: "Theme",
+		description: "Change global theme of stories.",
+		toolbar: {
+			icon: "switchalt",
+			items: [
+				{ title: "Light", left: "🌞", value: "light" },
+				{ title: "Dark", left: "🌚", value: "dark" },
+			],
+		},
+	},
+	direction: {
+		name: "Direction",
+		description:
+			"The direction property specifies the text direction/writing direction within a block-level element.",
+		toolbar: {
+			icon: "globe",
+			items: [
+				{ title: "Left to right", value: "" },
+				{ title: "Right to left", value: "rtl" },
+			],
+		},
+	},
+}
+
 export const parameters = {
 	actions: {
 		argTypesRegex: "^on[A-Z].*",
@@ -84,11 +110,11 @@ export const parameters = {
 					"Components",
 					[
 						"Overview",
-						"Core Elements",
+						"Core",
 						["Grid", "*"],
 						"Simple Elements",
 						["Avatar", "Button", "Icon Button", "*"],
-						"Form Elements",
+						"Forms",
 						[
 							"Form Field",
 							"Input",
@@ -178,17 +204,43 @@ const WordPress = ({ children }) => {
 	)
 }
 
-const SuiWrapper = ({ children }) => {
+const SuiWrapper = ({ children, context }) => {
+	// get theme from global context in storybook
+	const { theme, direction } = context.globals
+
+	// state to manage theme class
+	const [suitheme, setSuiTheme] = useState(theme || "light")
+
+	// When the theme global changes
+	// Set the new theme
+	useEffect(() => {
+		setSuiTheme(theme)
+	}, [theme])
+
+	// Set the direction rtl/ltr
+	useEffect(() => {
+		if (direction) {
+			document.body.classList.add(direction)
+			document.documentElement.dir = direction
+
+			// cleanup function to remove class added.
+			return () => {
+				document.body.classList.remove(direction)
+				document.documentElement.dir = ""
+			}
+		}
+	}, [direction])
+
 	return (
 		<WordPress>
-			<div className="sui-wrap sui-theme--light">{children}</div>
+			<div className={`sui-wrap sui-theme--${suitheme}`}>{children}</div>
 		</WordPress>
 	)
 }
 
 export const decorators = [
-	(Story) => (
-		<SuiWrapper>
+	(Story, context) => (
+		<SuiWrapper context={context}>
 			<Story />
 		</SuiWrapper>
 	),

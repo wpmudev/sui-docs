@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"baseUrl": "./",
 		"target": "es5",
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
@@ -16,6 +17,6 @@
 		"noEmit": true,
 		"jsx": "react-jsx"
 	},
-	"include": ["packages"],
-	"exclude": ["**/node_modules"]
+	"include": ["src", "packages", "lib"],
+	"exclude": ["node_modules"]
 }
