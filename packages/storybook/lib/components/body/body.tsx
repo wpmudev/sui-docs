@@ -1,15 +1,29 @@
-import React from "react";
+/**
+ * External Dependencies
+ */
+import React from "react"
 
-// Import required styles.
-import "./body.scss";
+/**
+ * Internal Dependencies
+ */
+import "./body.scss"
 
-// Build "body" component.
-const Body = ({ children, ...args }) => {
+interface BodyProps {
+	children: React.ReactNode
+}
+
+const Body: React.FunctionComponent<
+	BodyProps &
+		React.DetailedHTMLProps<
+			React.HTMLAttributes<HTMLDivElement>,
+			HTMLDivElement
+		>
+> = ({ children, ...props }) => {
 	return (
-		<div className="csb-body" {...args}>
+		<div className="csb-body" {...props}>
 			{children}
 		</div>
-	);
-};
+	)
+}
 
-export default Body;
+export default Body

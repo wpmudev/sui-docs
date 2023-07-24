@@ -1,26 +1,49 @@
-import React, { Children } from "react";
+/**
+ *
+ * External Dependencies
+ *
+ */
+import React, { Children } from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import classnames from "classnames"
 
-// Import required styles.
-import "./select.scss";
+/**
+ *
+ * Internal Dependencies
+ *
+ */
+import "./select.scss"
 
-// Build "select" component.
-const Select = ({ small, children, ...args }) => {
-	const options = Children.map( children, ( item, index ) => {
+interface SelectType {
+	small?: boolean
+	children: JSX.Element[]
+}
+
+const Select: React.FunctionComponent<
+	SelectType &
+		React.DetailedHTMLProps<
+			React.SelectHTMLAttributes<HTMLSelectElement>,
+			HTMLSelectElement
+		>
+> = ({ small = false, children, ...props }) => {
+	const options = Children.map(children, (item, index) => {
 		return (
-			<option key={ index } value={ item.props.value }>
-				{ item.props.label }
+			<option key={index} value={item?.props.value}>
+				{item?.props.label}
 			</option>
-		);
-	});
+		)
+	})
+
+	const selectClasses = classnames({
+		"csb-select": true,
+		"csb-select--sm": small,
+	})
 
 	return (
-		<select
-			className={`csb-select${ true === small ? ' csb-select--sm' : '' }`}
-			{ ...args }>
-			{ options }
+		<select className={selectClasses} {...props}>
+			{options}
 		</select>
-	);
-};
+	)
+}
 
-// Publish required component(s).
-export default Select;
+export default Select

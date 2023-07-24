@@ -1,42 +1,41 @@
-import React from "react";
+/**
+ *
+ * External Dependencies
+ *
+ */
+import React from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import classnames from "classnames"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Source } from "@storybook/addon-docs"
 
-// Import required components.
-import { Source } from '@storybook/addon-docs';
+/**
+ *
+ * Internal Dependencies
+ *
+ */
+import "./snippet.scss"
 
-// Import required styles.
-import "./snippet.scss";
-
-// Build "snippet" component.
-const Snippet = ({ language, dark, children }) => {
-    const hasDark = !isUndefined( dark ) ? true : false;
-    const isDark = hasDark && true === dark;
-
-    return (
-        <div className={`csb-snippet${ isDark ? ' csb-snippet--dark' : '' }`}>
-            <Source
-                code={ children }
-                { ... ( !isUndefined( language ) && { language: language } ) } />
-        </div>
-    );
+interface SnippetProps {
+	language: string
+	dark?: boolean
+	children: string
 }
 
-// Check if element is undefined.
-const isUndefined = ( element, isNumber = false ) => {
-    const isValid = 'undefined' !== typeof element;
-    const isNotEmpty = '' !== element;
-
-    if ( element && isValid && isNotEmpty ) {
-        if ( isNumber ) {
-            if ( Number.isNaN(element) ) {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-
-    return true;
+const Snippet: React.FunctionComponent<SnippetProps> = ({
+	language,
+	dark = false,
+	children,
+}) => {
+	const snippetClasses = classnames({
+		"csb-snippet": true,
+		"csb-snippet--dark": dark,
+	})
+	return (
+		<div className={snippetClasses}>
+			<Source code={children} language={language} />
+		</div>
+	)
 }
 
-// Publish required component(s).
-export default Snippet;
+export default Snippet

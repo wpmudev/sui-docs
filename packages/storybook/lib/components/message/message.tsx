@@ -1,71 +1,82 @@
+/**
+ * External Dependencies
+ */
+import React from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import classnames from "classnames"
 
-import React from "react";
+/**
+ * Internal Dependencies
+ */
+import Button from "../button/button"
+import { isEmpty } from "../../utils"
+import "./message.scss"
 
-// Import required components.
-import Button from "../button/button";
-
-// Import required styles.
-import "./message.scss";
-
-// Build "message" component.
-const Message = ({ action, color, dark, children, ...args }) => {
-    const cta = Object.assign(
-        {
-            label: '',
-            icon: '',
-            style: '',
-            color: '',
-            type: '',
-            link: '',
-            page: '',
-        },
-        action
-    );
-
-    return (
-        <div
-            className={`csb-message${ !isUndefined( color )
-                ? ' csb-message--' + color
-                : '' }`}
-            { ...args }>
-            <div className="csb-message__content">
-                { children }
-            </div>
-            { !isUndefined( cta.label ) && (
-                <div className="csb-message__action">
-                    <Button
-                        label={ cta.label }
-                        small={ true }
-                        { ... ( !isUndefined( cta.style ) && { style: cta.style } ) }
-                        { ... ( !isUndefined( cta.color ) && { color: cta.color } ) }
-                        { ... ( !isUndefined( cta.link ) && { type: 'link' } ) }
-                        { ... ( !isUndefined( cta.link ) && { href: cta.link } ) }
-                        { ... ( !isUndefined( cta.link ) && { target: '_blank' } ) }
-                        { ... ( !isUndefined( cta.link ) && { rel: 'nofollow' } ) }
-                    />
-                </div>
-            )}
-        </div>
-    );
+interface MessageProps {
+	action?: {
+		label?: string
+		style?: "primary" | "secondary"
+		color?: "white" | "black"
+		link?: string
+	}
+	color: "blue" | "green" | "yellow" | "red"
+	children: React.ReactNode
 }
 
-// Check if element is undefined.
-const isUndefined = (element, isNumber = false) => {
-    const isValid = 'undefined' !== typeof element;
-    const isNotEmpty = '' !== element;
+const Message: React.FunctionComponent<
+	MessageProps &
+		React.DetailedHTMLProps<
+			React.HTMLAttributes<HTMLDivElement>,
+			HTMLDivElement
+		>
+> = ({ action, color, children, ...props }) => {
+	const messageClasses = classnames({
+		"csb-message": true,
+		[`csb-message--${color}`]: !isEmpty(color),
+	})
 
-    if ( element && isValid && isNotEmpty ) {
-        if ( isNumber ) {
-            if ( Number.isNaN(element) ) {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
+	const cta = Object.assign(
+		{
+			label: "",
+			icon: "",
+			style: "",
+			color: "",
+			type: "",
+			link: "",
+			page: "",
+		},
+		action,
+	)
 
-    return true;
+	return (
+		<div className={messageClasses} {...props}>
+			<div className="csb-message__content">{children}</div>
+			{!isEmpty(cta.label) && (
+				<div className="csb-message__action">
+					{!isEmpty(cta.link) ? (
+						<Button
+							type="link"
+							label={cta.label}
+							small={true}
+							href={cta.link}
+							rel="nofollow"
+							target="_blank"
+							style={!isEmpty(cta.style) ? cta.style : "primary"}
+							{...(!isEmpty(cta.color) && { color: cta.color })}
+						/>
+					) : (
+						<Button
+							label={cta.label}
+							small={true}
+							type="button"
+							style={!isEmpty(cta.style) ? cta.style : "primary"}
+							{...(!isEmpty(cta.color) && { color: cta.color })}
+						/>
+					)}
+				</div>
+			)}
+		</div>
+	)
 }
 
-// Publish required component(s).
-export default Message;
+export default Message

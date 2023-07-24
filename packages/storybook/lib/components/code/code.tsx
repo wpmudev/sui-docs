@@ -1,65 +1,51 @@
-import React from "react";
+/**
+ *
+ * External Dependencies
+ *
+ */
+import React from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import classnames from "classnames"
 
-// Import required styles.
-import "./code.scss";
+/**
+ *
+ * Internal Dependencies
+ *
+ */
+import "./code.scss"
 
-// Build "code" component.
-const Code = ({ small, theme, fullWidth, children, className, ...args }) => {
-    const hasClass = !isUndefined( className ) ? true : false;
-    const hasSmall = !isUndefined( small ) ? true : false;
-    const isfullWidth = !isUndefined( fullWidth ) ? true : false;
-
-    let codeClass = '';
-
-    if ( hasSmall && true === small ) {
-        codeClass += ' csb-code--sm';
-    }
-
-    switch ( theme ) {
-        case 'dark':
-        case 'ghost':
-            codeClass += ' csb-code--theme-' + theme;
-            break;
-
-        default:
-            codeClass += ' csb-code--theme-light';
-            break;
-    }
-
-    if ( isfullWidth && true === fullWidth ) {
-        codeClass += ' csb-code--block';
-    }
-
-    if ( hasClass ) {
-        codeClass += ' ' + className;
-    }
-
-    return (
-        <code
-            className={`csb-code${ !isUndefined( codeClass ) ? codeClass : '' }`}
-            { ...args }>
-            { children }
-        </code>
-    );
+interface CodeProps {
+	small?: boolean
+	theme?: "dark" | "ghost" | "light"
+	fullWidth?: boolean
+	children: React.ReactNode
+	className?: string
 }
 
-// Check if element is undefined.
-const isUndefined = (element, isNumber = false) => {
-    const isValid = 'undefined' !== typeof element;
-    const isNotEmpty = '' !== element;
+const Code: React.FunctionComponent<
+	CodeProps &
+		React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
+> = ({
+	small,
+	theme = "light",
+	fullWidth,
+	children,
+	className = "",
+	...props
+}) => {
+	const codeClass = classnames({
+		"csb-code": true,
+		"csb-code--sm": small,
+		[`csb-code--theme-${theme}`]: theme,
+		"csb-code--block": fullWidth,
+		[className]: !!className,
+	})
 
-    if ( element && isValid && isNotEmpty ) {
-        if ( isNumber ) {
-            if ( Number.isNaN(element) ) {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-
-    return true;
+	return (
+		<code className={codeClass} {...props}>
+			{children}
+		</code>
+	)
 }
 
-// Publish required component(s).
-export default Code;
+export default Code

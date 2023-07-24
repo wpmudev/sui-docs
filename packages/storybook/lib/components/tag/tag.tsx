@@ -1,88 +1,88 @@
-import React, { useState } from "react";
+/**
+ *
+ * External Dependencies
+ *
+ */
+import React, { useState } from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import classnames from "classnames"
 
-// Import required components.
-import Tooltip from "../tooltip/tooltip";
+/**
+ *
+ * Internal Dependencies
+ *
+ */
+import Tooltip from "../tooltip/tooltip"
+import "./tag.scss"
 
-// Import required styles.
-import "./tag.scss";
+interface TagProps {
+	id?: string
+	color: "" | "yellow" | "blue" | "red" | "green"
+	light?: boolean
+	uppercase?: boolean
+	tooltip?: string
+	children: React.ReactNode
+}
 
-// Build "tag" component.
-const Tag = ({ id, color, light, uppercase, tooltip, children, ...args }) => {
-	const [ isHovering, setIsHovering ] = useState( false );
+const Tag: React.FunctionComponent<
+	TagProps &
+		React.DetailedHTMLProps<
+			React.HTMLAttributes<HTMLSpanElement>,
+			HTMLSpanElement
+		>
+> = ({
+	id = "",
+	color,
+	light = false,
+	uppercase = false,
+	tooltip,
+	children,
+	...props
+}) => {
+	const [isHovering, setIsHovering] = useState(false)
 
 	const handleMouseOver = () => {
-		setIsHovering( true );
+		setIsHovering(true)
 	}
 
 	const handleMouseOut = () => {
-		setIsHovering( false );
+		setIsHovering(false)
 	}
 
 	// Set component class.
-	let tagClass = 'csb-tag';
+	const tagClass = classnames({
+		"csb-tag": true,
+		[`csb-tag--${color}`]: !!color,
+		"csb-tag--light": true,
+		"csb-tag--uppercase": uppercase,
+	})
 
-	switch (color) {
-		case 'blue':
-		case 'yellow':
-		case 'green':
-		case 'red':
-			tagClass += ' csb-tag--' + color;
-			break;
-
-		default:
-			tagClass += '';
-			break;
-	}
-
-	if ( true === light ) {
-		tagClass += ' csb-tag--light';
-	}
-
-	if ( true === uppercase ) {
-		tagClass += ' csb-tag--uppercase';
-	}
-
-	// Return markup with tooltip.
-	if ( !isUndefined( tooltip ) ) {
+	// Tag with tooltip
+	if (!!tooltip) {
 		return (
-			<Tooltip id={ id } description={ tooltip } active={ isHovering ? true : false }>
+			<Tooltip id={id} description={tooltip} active={isHovering}>
 				<span
-					className={ tagClass }
-					aria-describedby={ id }
-					onMouseOver={ handleMouseOver }
-					onMouseOut={ handleMouseOut }
-					{ ...args }>
-					{ children }
+					className={tagClass}
+					aria-describedby={id}
+					onMouseOver={handleMouseOver}
+					onFocus={handleMouseOver}
+					onMouseOut={handleMouseOut}
+					onBlur={handleMouseOut}
+					{...props}
+				>
+					{children}
 				</span>
 			</Tooltip>
-		);
+		)
 	}
 
-	// Return simple markup.
+	// Tag without tooltip
 	return (
-		<span className={ tagClass } { ...args }>
-			{ children }
+		<span className={tagClass} {...props}>
+			{children}
 		</span>
-	);
-}
-
-// Check if element is undefined.
-const isUndefined = ( element, isNumber = false ) => {
-	const isValid = 'undefined' !== typeof element;
-	const isNotEmpty = '' !== element;
-
-	if ( element && isValid && isNotEmpty ) {
-		if ( isNumber ) {
-			if ( Number.isNaN(element) ) {
-				return false;
-			}
-		} else {
-			return false;
-		}
-	}
-
-	return true;
+	)
 }
 
 // Publish required component(s).
-export default Tag;
+export default Tag

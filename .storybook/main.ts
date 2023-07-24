@@ -1,5 +1,4 @@
 const path = require("path")
-
 module.exports = {
 	stories: [
 		"../packages/**/stories/*.stories.mdx",
