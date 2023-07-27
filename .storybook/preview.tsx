@@ -8,6 +8,7 @@ import "./assets/css/wordpress.css"
 
 import "../packages/sui-css/src/scss/sui-css.scss"
 import "../packages/sui-icons/src/scss/sui-icons.scss"
+import { isEmpty } from "@wpmudev/storybook/lib/utils"
 
 /**
  * Get devices samples from:
@@ -233,7 +234,13 @@ const SuiWrapper = ({ children, context }) => {
 
 	return (
 		<WordPress>
-			<div className={`sui-wrap sui-theme--${suitheme}`}>{children}</div>
+			<div
+				className={`sui-wrap sui-theme--${
+					"" !== suitheme ? suitheme : "light"
+				}`}
+			>
+				{children}
+			</div>
 		</WordPress>
 	)
 }
