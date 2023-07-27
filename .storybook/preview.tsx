@@ -215,7 +215,7 @@ const SuiWrapper = ({ children, context }) => {
 	// When the theme global changes
 	// Set the new theme
 	useEffect(() => {
-		setSuiTheme(theme)
+		setSuiTheme(theme || "light")
 	}, [theme])
 
 	// Set the direction rtl/ltr
@@ -234,13 +234,7 @@ const SuiWrapper = ({ children, context }) => {
 
 	return (
 		<WordPress>
-			<div
-				className={`sui-wrap sui-theme--${
-					"" !== suitheme ? suitheme : "light"
-				}`}
-			>
-				{children}
-			</div>
+			<div className={`sui-wrap sui-theme--${suitheme}`}>{children}</div>
 		</WordPress>
 	)
 }
