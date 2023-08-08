@@ -58,7 +58,7 @@ $breakpoints: (
     flex-direction: column;
   }
 
-  * {
+  *:not(.sui-wrap *) {
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
     font-variant-ligatures: none;
