@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import "@storybook/addon-console"
 
 import "./assets/js/body-class"
@@ -142,8 +142,15 @@ export const parameters = {
 }
 
 const WordPress = ({ children }) => {
+	const [folded, setFolded] = useState(false)
+
+	const toggleSidebar = useCallback(() => {
+		console.log("wpadmin", folded)
+		setFolded(!folded)
+	}, [folded])
+
 	return (
-		<div id="wpadmin">
+		<div id="wpadmin" className={folded && "folded"}>
 			<div id="adminmenumain" role="navigation" aria-label="Main Menu">
 				<div id="adminmenuback"></div>
 
@@ -162,6 +169,7 @@ const WordPress = ({ children }) => {
 								id="collapse-button"
 								aria-label="Collapse Main menu"
 								aria-expanded="true"
+								onClick={toggleSidebar}
 							>
 								<span
 									className="collapse-button-icon"
