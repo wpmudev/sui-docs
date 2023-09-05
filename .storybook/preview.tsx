@@ -8,7 +8,6 @@ import "./assets/css/wordpress.css"
 
 import "../packages/sui-css/src/scss/sui-css.scss"
 import "../packages/sui-icons/src/scss/sui-icons.scss"
-import { isEmpty } from "@wpmudev/storybook/lib/utils"
 
 /**
  * Get devices samples from:
@@ -125,9 +124,11 @@ export const parameters = {
 							"Radio",
 							"*",
 						],
-						"Composed Elements",
+						"Advanced",
 						["*"],
-						"Complex Elements",
+						"Modules",
+						["*"],
+						"Collections",
 						["*"],
 						"*",
 					],
