@@ -4,6 +4,7 @@ module.exports = {
 		es6: true,
 		browser: true,
 		node: true,
+		"jest/globals": true,
 	},
 	settings: {
 		react: {
@@ -17,6 +18,8 @@ module.exports = {
 		"plugin:react/recommended",
 		"plugin:react-hooks/recommended",
 		"plugin:eslint-comments/recommended",
+		"plugin:jest/recommended",
+		"plugin:jest/style",
 		// "airbnb-typescript",
 	],
 	overrides: [
