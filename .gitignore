@@ -17,3 +17,6 @@ sui-icons
 
 # Ignore Storybook production build.
 storybook-static
+
+# Ignore test coverage
+coverage
