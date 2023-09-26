@@ -20,7 +20,7 @@ module.exports = {
 		"plugin:eslint-comments/recommended",
 		"plugin:jest/recommended",
 		"plugin:jest/style",
-		// "airbnb-typescript",
+		"plugin:storybook/recommended",
 	],
 	overrides: [
 		{

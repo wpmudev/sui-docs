@@ -1,3 +1,4 @@
+import { dirname, join } from "path"
 const path = require("path")
 module.exports = {
 	stories: [
@@ -7,12 +8,13 @@ module.exports = {
 		"../packages/**/packages/**/stories/*.stories.@(js|jsx|ts|tsx)",
 	],
 	addons: [
-		"@storybook/addon-links",
-		"@storybook/addon-essentials",
-		"@storybook/addon-styling",
-		"@storybook/addon-a11y",
+		getAbsolutePath("@storybook/addon-links"),
+		getAbsolutePath("@storybook/addon-essentials"),
+		getAbsolutePath("@storybook/addon-a11y"),
+		getAbsolutePath("@storybook/addon-storyshots"),
 	],
-	webpackFinal: async (config, { configType }) => {
+	// @ts-ignore
+	webpackFinal: async (config) => {
 		// Add SASS support.
 		config.module.rules.push({
 			test: /\.scss$/,
@@ -40,7 +42,7 @@ module.exports = {
 		return config
 	},
 	framework: {
-		name: "@storybook/react-webpack5",
+		name: getAbsolutePath("@storybook/react-webpack5"),
 		options: {},
 	},
 	typescript: {
@@ -49,4 +51,8 @@ module.exports = {
 	docs: {
 		autodocs: true,
 	},
+}
+
+function getAbsolutePath(value: string): any {
+	return dirname(require.resolve(join(value, "package.json")))
 }
