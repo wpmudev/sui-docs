@@ -9,6 +9,9 @@ const config: Config.InitialOptions = {
 	moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
 	testMatch: ["<rootDir>/packages/**/?(*.)test.{ts,tsx}"],
 	setupFilesAfterEnv: ["<rootDir>/tests/setup-test.ts"],
+	moduleNameMapper: {
+		"^.+\\.svg$": "jest-svg-transformer",
+	},
 }
 
 export default config
