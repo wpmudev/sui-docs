@@ -5,6 +5,7 @@ const config: Config.InitialOptions = {
 	testEnvironment: "jsdom",
 	transform: {
 		"^.+\\.tsx?$": ["ts-jest", {}],
+		".+\\.(css|scss|png|jpg|svg)$": "jest-transform-stub",
 	},
 	moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
 	testMatch: ["<rootDir>/packages/**/?(*.)test.{ts,tsx}"],
