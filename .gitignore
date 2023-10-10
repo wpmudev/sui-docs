@@ -4,7 +4,6 @@ node_modules
 .changelog
 .dccache
 .idea
-package-lock.json
 yarn.lock
 
 # Ignore all error logs.
