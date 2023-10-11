@@ -37,7 +37,9 @@
     "directory": "packages/storybook"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "npx tsup src --dts",
+    "build:fast": "npx tsup src",
+    "dev": "pnpm build:fast -- --watch"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"

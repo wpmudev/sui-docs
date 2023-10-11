@@ -32,6 +32,7 @@
     "@babel/preset-env": "^7.22.7",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.15",
+    "@rollup/plugin-typescript": "^11.1.5",
     "@storybook/addon-a11y": "^7.4.5",
     "@storybook/addon-actions": "^7.4.5",
     "@storybook/addon-console": "^2.0.0",
@@ -92,6 +93,7 @@
     "ts-jest": "^29.1.1",
     "ts-loader": "^9.4.4",
     "ts-node": "^10.9.1",
+    "tsup": "^7.2.0",
     "typescript": "^5.1.6",
     "webpack": "^5.88.1"
   },
@@ -106,6 +108,7 @@
     "format-files": "clear && yarn prettier --write .",
     "storybook": "storybook dev -p 6006",
     "test:sb": "storybook dev -p 6006 && jest",
+    "build": "lerna run build --scope @wpmudev/sui-* --ignore=@wpmudev/sui-button --ignore=@wpmudev/sui-icon --ignore=@wpmudev/sui-dropdown",
     "build-storybook": "storybook build",
     "deploy": "yarn run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\"",
     "release": "lerna run release",
