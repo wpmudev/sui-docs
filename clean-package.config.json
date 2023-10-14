@@ -1,4 +1,5 @@
 {
+  "remove": ["scripts"],
   "replace": {
     "main": "dist/index.js",
     "module": "dist/index.mjs",
