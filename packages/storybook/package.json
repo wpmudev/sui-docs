@@ -37,9 +37,9 @@
     "directory": "packages/storybook"
   },
   "scripts": {
-    "build": "npx tsup src --dts",
+    "build": "npx tsup",
     "build:fast": "npx tsup src",
-    "dev": "pnpm build:fast -- --watch"
+    "dev": "npm build:fast -- --watch"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
