@@ -111,6 +111,7 @@
     "trim-newlines": "^4.0.2"
   },
   "scripts": {
+    "changeset": "changeset",
     "format-files": "clear && yarn prettier --write .",
     "storybook": "storybook dev -p 6006",
     "test:sb": "storybook dev -p 6006 && jest",

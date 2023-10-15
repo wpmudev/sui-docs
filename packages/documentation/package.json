@@ -1,7 +1,7 @@
 {
-  "private": true,
-  "version": "0.0.0",
   "name": "@wpmudev/documentation",
+  "version": "0.0.0",
+  "private": true,
   "description": "Main documentation for the WPMU DEV Design System.",
   "keywords": [
     "incsub",
