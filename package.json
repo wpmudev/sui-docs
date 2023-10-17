@@ -119,11 +119,10 @@
     "build:dev": "lerna run clean && lerna run build --scope @wpmudev/sui-*",
     "build-storybook": "storybook build",
     "deploy": "yarn run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\"",
-    "release": "lerna run release",
     "test": "jest",
     "test:dev": "jest --watch",
     "version": "changeset version",
-    "publish": "changeset release"
+    "release": "lerna run prepack && changeset publish && lerna run postpack"
   },
   "changelog": {
     "repo": "wpmudev/sui-css",
