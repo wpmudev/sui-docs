@@ -10,6 +10,11 @@ const suiTheme = create({
 	// Base theme.
 	colorPrimary: "hsl(213, 68%, 11%)",
 	colorSecondary: "hsl(214, 84%, 56%)",
+
+	// Typography
+	fontBase: '"Roboto", sans-serif',
+	fontCode: "monospace",
+
 	// Branding.
 	brandTitle: "Shared UI",
 	brandImage: suiLogo,
