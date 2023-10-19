@@ -122,7 +122,7 @@
     "test": "jest",
     "test:dev": "jest --watch",
     "version": "changeset version",
-    "release": "lerna run prepack && changeset publish && lerna run postpack"
+    "release": "changeset publish"
   },
   "changelog": {
     "repo": "wpmudev/sui-css",
