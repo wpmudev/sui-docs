@@ -52,6 +52,7 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
     "@types/jest": "^29.5.5",
+    "@types/jest-axe": "^3.5.7",
     "@types/mdx": "^2.0.8",
     "@types/node": "^16.18.38",
     "@types/react": "^18.2.14",
@@ -77,6 +78,7 @@
     "gh-pages": "^4.0.0",
     "glob": "^10.3.1",
     "jest": "^29.7.0",
+    "jest-axe": "^8.0.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-svg-transformer": "^1.0.0",
     "jest-transform-stub": "^2.0.0",
@@ -121,6 +123,7 @@
     "deploy": "yarn run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\"",
     "test": "jest",
     "test:dev": "jest --watch",
+    "test:a11y": "SUI_A11Y_TEST=1 jest",
     "version": "changeset version",
     "release": "changeset publish"
   },
