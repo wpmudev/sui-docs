@@ -23,10 +23,11 @@
 <h1>The documentation for SUI 3 has been shifted to a new location</h1>
 <p><a href="https://wpmudev.github.io/sui-react/">Click here</a> if you are not redirected automatically.</p>
 <script>
-  const redirectDelay = 5000 // 10 seconds
+  const redirectDelay = 3000 // 3 seconds
+  let url = (window?.location?.href)?.replace('sui-docs', 'sui-react');
 
   function redirectToAnotherPage() {
-    window.location.href = "https://wpmudev.github.io/sui-react/" // Replace with your target URL
+    window.location.href = url // Replace with your target URL
   }
 
   // Start a timer to redirect after the specified delay
